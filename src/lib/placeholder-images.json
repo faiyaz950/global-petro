@@ -1,0 +1,142 @@
+{
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "Offshore oil rig construction in a vast ocean.",
+      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxvZmZzaG9yZSUyMHJpZ3xlbnwwfHx8fDE3NjMyOTQwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "offshore rig"
+    },
+    {
+      "id": "project-2",
+      "description": "Power plant with cooling towers emitting steam at sunset.",
+      "imageUrl": "https://images.unsplash.com/photo-1509390288171-ce2088f7d08e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwb3dlciUyMHBsYW50fGVufDB8fHx8MTc2MzI4NjQ3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "power plant"
+    },
+    {
+      "id": "project-3",
+      "description": "Sprawling solar panel farm under a clear blue sky.",
+      "imageUrl": "https://images.unsplash.com/photo-1674606071893-2a9023075f70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzb2xhciUyMGZhcm18ZW58MHx8fHwxNzYzMjk0MDA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "solar farm"
+    },
+    {
+      "id": "project-4",
+      "description": "Modern bridge infrastructure spanning a wide river.",
+      "imageUrl": "https://images.unsplash.com/photo-1741057477844-825efb229bbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxicmlkZ2UlMjBpbmZyYXN0cnVjdHVyZXxlbnwwfHx8fDE3NjMyOTQwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bridge infrastructure"
+    },
+    {
+      "id": "project-5",
+      "description": "Pipeline installation across a desert landscape.",
+      "imageUrl": "https://images.unsplash.com/photo-1594398982255-fd4ea34a61f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkZXNlcnQlMjBwaXBlbGluZXxlbnwwfHx8fDE3NjMyOTQwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "desert pipeline"
+    },
+    {
+      "id": "project-6",
+      "description": "Fabrication of large metal structures in an industrial workshop.",
+      "imageUrl": "https://images.unsplash.com/photo-1515630771457-09367d0ae038?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtZXRhbCUyMGZhYnJpY2F0aW9ufGVufDB8fHx8MTc2MzIzMjQzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "metal fabrication"
+    },
+    {
+      "id": "hero-background",
+      "description": "Abstract image of industrial pipes and machinery.",
+      "imageUrl": "https://images.unsplash.com/photo-1661069361631-a7bf4b70bbfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aW5kdXN0cmlhbCUyMGFic3RyYWN0fGVufDB8fHx8MTc2MzI4Njc3Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial abstract"
+    },
+    {
+      "id": "client-pdo",
+      "description": "Logo for Petroleum Development Oman",
+      "imageUrl": "https://images.unsplash.com/photo-1562783912-21ad31ee2a83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjM2Nzc2NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "client-oxy",
+      "description": "Logo for Occidental Petroleum",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjM2Nzc2NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "client-oman-gas",
+      "description": "Logo for Oman Gas Company",
+      "imageUrl": "https://images.unsplash.com/photo-1562783912-21ad31ee2a83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjM2Nzc2NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "client-medco",
+      "description": "Logo for MEDCO",
+      "imageUrl": "https://images.unsplash.com/photo-1620288627223-53302f4e8c74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjM2Nzc2NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "client-lt",
+      "description": "Logo for L&amp;T",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjM2Nzc2NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "client-galfar",
+      "description": "Logo for Galfar",
+      "imageUrl": "https://images.unsplash.com/photo-1687523327554-fa9f50423489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjM2Nzc2NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "client-al-turki",
+      "description": "Logo for Al Turki Enterprises",
+      "imageUrl": "https://images.unsplash.com/photo-1687523327554-fa9f50423489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjM2Nzc2NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "client-orpic",
+      "description": "Logo for ORPIC",
+      "imageUrl": "https://images.unsplash.com/photo-1562705121-e624542c7b9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29tcGFueSUyMGxvZ298ZW58MHx8fHwxNzYzNjc3NjQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "service-engineering",
+      "description": "Engineers collaborating over architectural blueprints.",
+      "imageUrl": "https://images.unsplash.com/photo-1736337271086-277e15477ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlbmdpbmVlcmluZyUyMHNvbHV0aW9uc3xlbnwwfHx8fDE3NjM3NTI5NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "engineering solutions"
+    },
+    {
+      "id": "service-power",
+      "description": "High-voltage power lines against a sunset sky.",
+      "imageUrl": "https://images.unsplash.com/photo-1758992430430-7bba30663d73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3dlciUyMHN5c3RlbXN8ZW58MHx8fHwxNzYzNzUyOTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "power systems"
+    },
+    {
+      "id": "service-infrastructure",
+      "description": "A modern bridge with complex architecture.",
+      "imageUrl": "https://images.unsplash.com/photo-1532472601364-dd1d9bde108b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxpbmZyYXN0cnVjdHVyZSUyMGRldmVsb3BtZW50fGVufDB8fHx8MTc2Mzc1Mjk1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "infrastructure development"
+    },
+    {
+      "id": "service-construction",
+      "description": "Construction site with cranes and workers.",
+      "imageUrl": "https://images.unsplash.com/photo-1623036484438-002339898926?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb25zdHJ1Y3Rpb24lMjBzZXJ2aWNlc3xlbnwwfHx8fDE3NjM3NTI5NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "construction services"
+    },
+    {
+      "id": "service-maintenance",
+      "description": "A technician working on industrial machinery.",
+      "imageUrl": "https://images.unsplash.com/photo-1684346605835-69888f742522?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYWludGVuYW5jZSUyMHN1cHBvcnR8ZW58MHx8fHwxNzYzNzUyOTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "maintenance support"
+    },
+    {
+      "id": "service-automation",
+      "description": "A robotic arm working on a production line.",
+      "imageUrl": "https://images.unsplash.com/photo-1513828583688-c52646db42da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxpbmR1c3RyaWFsJTIwYXV0b21hdGlvbnxlbnwwfHx8fDE3NjM3NTI5NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial automation"
+    },
+    {
+      "id": "policy-hse",
+      "description": "A worker in a hard hat at an industrial site, symbolizing safety.",
+      "imageUrl": "https://images.unsplash.com/photo-1525983391320-a1693245842c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwc2FmZXR5fGVufDB8fHx8MTc2Mzc1Mjk1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "industrial safety"
+    },
+    {
+      "id": "policy-quality",
+      "description": "A quality control inspector examining a manufactured part.",
+      "imageUrl": "https://images.unsplash.com/photo-1581092448348-5221b6a941b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxxdWFsaXR5JTIwY29udHJvbHxlbnwwfHx8fDE3NjM3NTI5NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "quality control"
+    }
+  ]
+}

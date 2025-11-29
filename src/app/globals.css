@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 300 100% 99%;
+    --foreground: 336 33% 10%;
+    --card: 300 100% 99%;
+    --card-foreground: 336 33% 10%;
+    --popover: 300 100% 99%;
+    --popover-foreground: 336 33% 10%;
+    --primary: 335 43% 25%; /* #572649 */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 336 28% 90%;
+    --secondary-foreground: 336 33% 10%;
+    --muted: 336 28% 95%;
+    --muted-foreground: 336 10% 45%;
+    --accent: 335 21% 42%; /* #805773 */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 336 28% 85%;
+    --input: 336 28% 85%;
+    --ring: 335 43% 25%;
+    --radius: 0.5rem;
+    --chart-1: 335 43% 25%;
+    --chart-2: 335 21% 42%;
+    --chart-3: 336 28% 90%;
+    --chart-4: 336 33% 10%;
+    --chart-5: 336 10% 45%;
+  }
+
+  .dark {
+    --background: 336 33% 10%;
+    --foreground: 0 0% 98%;
+    --card: 336 33% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 336 33% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 335 33% 75%;
+    --primary-foreground: 335 43% 25%;
+    --secondary: 336 28% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 336 28% 25%;
+    --muted-foreground: 336 10% 65%;
+    --accent: 335 21% 52%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 336 28% 20%;
+    --input: 336 28% 20%;
+    --ring: 335 33% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  section {
+    @apply w-full scroll-mt-20 py-16 md:py-24 lg:py-28;
+  }
+
+  .timeline-item {
+    @apply opacity-0;
+  }
+
+  .timeline-item.is-visible {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
