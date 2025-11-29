@@ -27,6 +27,8 @@ import {
   Globe,
   Leaf,
   BookOpen,
+  Menu,
+  X,
 } from 'lucide-react';
 import { OrgChartSection } from '@/components/org-chart-section';
 import GlobalNav from '@/components/global-nav';
@@ -89,31 +91,31 @@ const JourneyCard = ({
   index: number;
 }) => (
   <div
-    className="group relative rounded-3xl bg-white/80 p-8 shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-105 hover:shadow-2xl animate-fadeInUp"
-    style={{ animationDelay: delay, animationFillMode: 'both' }}
+    className="group relative rounded-3xl bg-white/90 p-8 shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-105 hover:shadow-3xl animate-fadeInUp border border-gray-100"
+    style={{ animationDelay: delay, animationFillMode: 'both', fontFamily: "'Playfair Display', serif" }}
   >
-    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+    <div className="absolute -top-6 -left-6 w-16 h-16 bg-gradient-to-br from-[#991b1b] via-[#b91c1c] to-[#dc2626] rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-xl transform -rotate-12 group-hover:rotate-0 transition-transform duration-500">
       {index}
     </div>
-    <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 shadow-lg">
+    <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-[#7c2d12] via-[#92400e] to-[#b45309] text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-xl">
       {icon}
     </div>
-    <h3 className="mb-3 text-xl font-bold text-gray-900">{title}</h3>
-    <p className="text-gray-600 leading-relaxed">{description}</p>
-    <div className="absolute -bottom-3 -right-3 h-24 w-24 rounded-full bg-primary/5 transition-all duration-700 group-hover:scale-[3] group-hover:bg-primary/10"></div>
+    <h3 className="mb-4 text-2xl font-black text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</h3>
+    <p className="text-gray-600 leading-relaxed text-base" style={{ fontFamily: "'Playfair Display', serif" }}>{description}</p>
+    <div className="absolute -bottom-4 -right-4 h-32 w-32 rounded-full bg-gradient-to-br from-[#991b1b]/5 via-[#b91c1c]/5 to-[#dc2626]/5 transition-all duration-700 group-hover:scale-[4] group-hover:from-[#991b1b]/10 group-hover:via-[#b91c1c]/10 group-hover:to-[#dc2626]/10"></div>
   </div>
 );
 
 const PrincipleCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => {
   return (
-    <div className="group rounded-3xl border-2 border-gray-200 bg-white p-8 shadow-lg transition-all duration-500 hover:shadow-2xl hover:border-primary hover:-translate-y-2">
+    <div className="group rounded-3xl border-2 border-gray-200 bg-white p-10 shadow-xl transition-all duration-500 hover:shadow-3xl hover:border-[#a855f7] hover:-translate-y-3" style={{ fontFamily: "'Playfair Display', serif" }}>
       <div className="mb-6 flex items-center gap-5">
-        <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7c3aed] via-[#8b5cf6] to-[#a855f7] text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 shadow-lg">
           {icon}
         </div>
-        <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
+        <h3 className="text-2xl font-black text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</h3>
       </div>
-      <p className="text-gray-600 leading-relaxed">{description}</p>
+      <p className="text-gray-600 leading-relaxed text-base" style={{ fontFamily: "'Playfair Display', serif" }}>{description}</p>
     </div>
   );
 };
@@ -127,54 +129,54 @@ const ServiceItem = ({
   title: string;
   description: string;
 }) => (
-  <div className="group flex items-start gap-5 rounded-2xl p-6 transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 hover:shadow-lg">
-    <div className="mt-1 flex-shrink-0 text-primary transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12">
+  <div className="group flex items-start gap-6 rounded-3xl p-8 transition-all duration-300 hover:bg-gradient-to-r hover:from-[#0ea5e9]/5 hover:via-[#3b82f6]/5 hover:to-[#6366f1]/5 hover:shadow-xl border-2 border-transparent hover:border-[#3b82f6]/30" style={{ fontFamily: "'Playfair Display', serif" }}>
+    <div className="mt-1 flex-shrink-0 text-[#3b82f6] transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12">
       {icon}
     </div>
     <div>
-      <h4 className="font-bold text-lg text-gray-900 mb-2">{title}</h4>
-      <p className="text-gray-600 leading-relaxed">{description}</p>
+      <h4 className="font-black text-xl text-gray-900 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</h4>
+      <p className="text-gray-600 leading-relaxed" style={{ fontFamily: "'Playfair Display', serif" }}>{description}</p>
     </div>
   </div>
 );
 
 const AchievementCard = ({ icon, text, value }: { icon: React.ReactNode; text: string; value: string }) => (
-  <div className="rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 p-6 text-center transition-all duration-300 hover:scale-105 hover:shadow-xl">
-    <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white shadow-lg">
+  <div className="rounded-3xl bg-gradient-to-br from-[#059669]/5 via-[#10b981]/5 to-[#34d399]/5 p-8 text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl border-2 border-[#059669]/20" style={{ fontFamily: "'Playfair Display', serif" }}>
+    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#059669] via-[#10b981] to-[#34d399] text-white shadow-xl">
       {icon}
     </div>
-    <p className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+    <p className="text-4xl font-black bg-gradient-to-r from-[#059669] via-[#10b981] to-[#34d399] bg-clip-text text-transparent mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
       <AnimatedCounter
         end={parseInt(value)}
         suffix={value.includes('+') ? '+' : value.includes('%') ? '%' : ''}
       />
     </p>
-    <p className="text-sm text-gray-600 mt-2">{text}</p>
+    <p className="text-sm text-gray-600 font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>{text}</p>
   </div>
 );
 
 const ClientCard = ({ name }: { name: string }) => (
-  <div className="rounded-2xl bg-white p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center min-h-[100px]">
-    <h4 className="font-bold text-gray-800 text-center">{name}</h4>
+  <div className="rounded-3xl bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center min-h-[120px] border-2 border-gray-100 hover:border-[#f59e0b]" style={{ fontFamily: "'Playfair Display', serif" }}>
+    <h4 className="font-black text-gray-800 text-center text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>{name}</h4>
   </div>
 );
 
 const EquipmentCard = ({ name }: { name: string }) => (
-  <div className="rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-4 border border-gray-200 hover:border-primary transition-all duration-300 hover:shadow-lg">
+  <div className="rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 p-6 border-2 border-gray-200 hover:border-[#ec4899] transition-all duration-300 hover:shadow-xl hover:scale-105" style={{ fontFamily: "'Playfair Display', serif" }}>
     <div className="flex items-center gap-3">
-      <div className="w-2 h-2 rounded-full bg-primary"></div>
-      <p className="text-gray-700 font-medium">{name}</p>
+      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#ec4899] via-[#f472b6] to-[#f9a8d4]"></div>
+      <p className="text-gray-700 font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>{name}</p>
     </div>
   </div>
 );
 
 const CSRCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
-  <div className="rounded-2xl bg-white p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-600">
+  <div className="rounded-3xl bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-gray-100 hover:border-[#14b8a6]" style={{ fontFamily: "'Playfair Display', serif" }}>
+    <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0d9488] via-[#14b8a6] to-[#2dd4bf] text-white shadow-lg">
       {icon}
     </div>
-    <h4 className="font-bold text-lg text-gray-900 mb-2">{title}</h4>
-    <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
+    <h4 className="font-black text-xl text-gray-900 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</h4>
+    <p className="text-gray-600 leading-relaxed" style={{ fontFamily: "'Playfair Display', serif" }}>{description}</p>
   </div>
 );
 
@@ -192,21 +194,23 @@ export default function AboutPage() {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
+        * {
+          font-family: 'Playfair Display', serif;
+        }
+
         body,
         h1,
         h2,
         h3,
         h4,
         h5,
-        h6 {
-          font-family: 'Playfair Display', serif;
-        }
-
+        h6,
         p,
         span,
         a,
-        div {
-          font-family: 'PT Sans', sans-serif;
+        div,
+        button {
+          font-family: 'Playfair Display', serif;
         }
 
         .font-headline {
@@ -214,11 +218,11 @@ export default function AboutPage() {
         }
 
         .font-body {
-          font-family: 'PT Sans', sans-serif;
+          font-family: 'Playfair Display', serif;
         }
 
         .gradient-text {
-          background: linear-gradient(135deg, #0066cc 0%, #00ccff 100%);
+          background: linear-gradient(135deg, #932445 0%, #d63865 50%, #fcd34d 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -266,6 +270,26 @@ export default function AboutPage() {
         .animate-pulse-slow {
           animation: pulse-slow 3s ease-in-out infinite;
         }
+
+        @keyframes shimmer {
+          0% {
+            background-position: -1000px 0;
+          }
+          100% {
+            background-position: 1000px 0;
+          }
+        }
+
+        .animate-shimmer {
+          animation: shimmer 3s infinite;
+          background: linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 100%
+          );
+          background-size: 1000px 100%;
+        }
       `}</style>
 
       <div className="flex min-h-screen flex-col bg-gray-50 text-gray-800">
@@ -273,89 +297,86 @@ export default function AboutPage() {
 
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-32 pt-56">
-            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-5"></div>
-            <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-blue-400/20 blur-3xl animate-pulse-slow"></div>
+          <section className="relative overflow-hidden bg-gradient-to-br from-[#6b1a2e] via-[#8b1f3d] to-[#a8254f] py-32 pt-56">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnptMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNSIgb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-10"></div>
+            <div className="absolute -left-64 -top-64 h-[600px] w-[600px] rounded-full bg-[#c2416b]/25 blur-3xl animate-pulse-slow"></div>
             <div
-              className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl animate-pulse-slow"
+              className="absolute -bottom-64 -right-64 h-[600px] w-[600px] rounded-full bg-[#f59e0b]/20 blur-3xl animate-pulse-slow"
               style={{ animationDelay: '1.5s' }}
             ></div>
-            <div className="absolute top-20 right-20 w-32 h-32 border-4 border-blue-300/30 rounded-full animate-float"></div>
+            <div className="absolute top-32 right-32 w-40 h-40 border-4 border-white/20 rounded-full animate-float"></div>
             <div
-              className="absolute bottom-40 left-20 w-24 h-24 border-4 border-cyan-300/30 rounded-full animate-float"
+              className="absolute bottom-48 left-32 w-32 h-32 border-4 border-white/20 rounded-full animate-float"
               style={{ animationDelay: '1s' }}
             ></div>
 
             <div className="container relative mx-auto max-w-6xl px-4 text-center">
-              <div className="inline-block mb-6 px-6 py-2 rounded-full bg-gradient-to-r from-blue-100 to-cyan-100 border border-blue-200">
-                <p className="text-blue-700 font-semibold">Engineering Excellence Since 2010</p>
+              <div className="inline-block mb-8 px-8 py-3 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/30">
+                <p className="text-white font-black text-sm tracking-wide">ENGINEERING EXCELLENCE SINCE 2010</p>
               </div>
-              <h1 className="text-5xl font-black tracking-tight text-gray-900 sm:text-6xl md:text-7xl mb-8 animate-fadeInUp font-headline">
-                About <span className="gradient-text">Global Petrotech SPC</span>
+              <h1 className="text-6xl font-black tracking-tight text-white sm:text-7xl md:text-8xl mb-8 animate-fadeInUp leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                About <span className="text-[#fbbf24]">Global Petrotech SPC</span>
               </h1>
               <p
-                className="mx-auto max-w-4xl text-xl leading-relaxed text-gray-700 animate-fadeInUp font-body"
-                style={{ animationDelay: '0.2s' }}
+                className="mx-auto max-w-4xl text-2xl leading-relaxed text-white/90 animate-fadeInUp font-medium"
+                style={{ animationDelay: '0.2s', fontFamily: "'Playfair Display', serif" }}
               >
                 Your trusted partner in specialized engineering and construction solutions across Oman and the GCC
-                region, delivering high-quality, sustainable projects that exceed expectations. With over a decade of
-                excellence, we've become the preferred choice for industry leaders.
+                region, delivering high-quality, sustainable projects that exceed expectations.
               </p>
-              <div className="mt-12 flex justify-center gap-4 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+              <div className="mt-12 flex flex-wrap justify-center gap-6 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
                 <button
                   onClick={() => handleScrollTo('services')}
-                  className="px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="px-10 py-5 rounded-full bg-white text-[#6b1a2e] font-black shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 text-lg"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Explore Our Services
                 </button>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleScrollTo('contact');
-                  }}
-                  className="px-8 py-4 rounded-full bg-white text-gray-800 font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200"
+                <button
+                  onClick={() => handleScrollTo('contact')}
+                  className="px-10 py-5 rounded-full bg-transparent text-white font-black shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 border-4 border-white text-lg"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Contact Us
-                </a>
+                </button>
               </div>
             </div>
           </section>
 
           {/* Stats Section */}
-          <section className="py-20 bg-white">
-            <div className="container mx-auto max-w-6xl px-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <AchievementCard icon={<Award size={24} />} value="50+" text="Major Projects Completed" />
-                <AchievementCard icon={<UserCheck size={24} />} value="25+" text="Esteemed Client Partnerships" />
-                <AchievementCard icon={<Shield size={24} />} value="100%" text="Safety Commitment" />
-                <AchievementCard icon={<Users size={24} />} value="160+" text="Skilled Professionals" />
+          <section className="py-24 bg-white relative">
+            <div className="absolute inset-0 bg-gradient-to-b from-[#059669]/5 to-transparent"></div>
+            <div className="container mx-auto max-w-6xl px-4 relative">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <AchievementCard icon={<Award size={28} />} value="50+" text="Major Projects Completed" />
+                <AchievementCard icon={<UserCheck size={28} />} value="25+" text="Esteemed Client Partnerships" />
+                <AchievementCard icon={<Shield size={28} />} value="100%" text="Safety Commitment" />
+                <AchievementCard icon={<Users size={28} />} value="160+" text="Skilled Professionals" />
               </div>
             </div>
           </section>
 
-          {/* Intro Section */}
-          <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-            <div className="container mx-auto max-w-6xl px-4">
-              <div className="grid items-center gap-16 lg:grid-cols-2">
-                <div className="space-y-6 animate-fadeInUp">
-                  <div className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
-                    Established SME in Sultanate of Oman
+          {/* Intro Section with Images */}
+          <section className="py-32 bg-gradient-to-b from-white to-gray-50">
+            <div className="container mx-auto max-w-7xl px-4">
+              <div className="grid items-center gap-20 lg:grid-cols-2">
+                <div className="space-y-8 animate-fadeInUp">
+                  <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#dc2626]/10 via-[#ef4444]/10 to-[#f87171]/10 text-[#dc2626] font-black text-sm border-2 border-[#dc2626]/20" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    ESTABLISHED SME IN SULTANATE OF OMAN
                   </div>
-                  <h2 className="text-4xl font-black text-gray-900 font-headline">Welcome to Global Petrotech</h2>
-                  <p className="text-gray-600 leading-relaxed text-lg font-body">
+                  <h2 className="text-5xl font-black text-gray-900 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Welcome to Global Petrotech</h2>
+                  <p className="text-gray-600 leading-relaxed text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>
                     Established as a dynamic Small and Medium Enterprise (SME) in the Sultanate of Oman, we have proudly
                     served the oil & gas, power, energy, infrastructure, municipal and environmental development (MED),
                     and landscape sectors for over a decade.
                   </p>
-                  <p className="text-gray-600 leading-relaxed text-lg font-body">
+                  <p className="text-gray-600 leading-relaxed text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>
                     Headquartered in Ghala, Muscat, our commitment to reliable execution, innovation, and client-centric
-                    tailoring has earned us a reputation for delivering excellence. We've built a legacy of trust
-                    through consistent performance and unwavering dedication to quality.
+                    tailoring has earned us a reputation for delivering excellence.
                   </p>
-                  <div className="pt-4">
-                    <h3 className="font-bold text-xl text-gray-900 mb-4 font-headline">Our Sectors of Excellence:</h3>
-                    <div className="grid grid-cols-2 gap-3">
+                  <div className="pt-6">
+                    <h3 className="font-black text-2xl text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>Our Sectors of Excellence:</h3>
+                    <div className="grid grid-cols-2 gap-4">
                       {[
                         'Oil & Gas',
                         'Power & Energy',
@@ -364,25 +385,55 @@ export default function AboutPage() {
                         'Landscape Engineering',
                         'Industrial Projects',
                       ].map((sector) => (
-                        <div key={sector} className="flex items-center gap-2 text-gray-700 font-body">
-                          <CheckCircle size={20} className="text-green-500" />
-                          <span>{sector}</span>
+                        <div key={sector} className="flex items-center gap-3 text-gray-700 font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#dc2626] via-[#ef4444] to-[#f87171] flex items-center justify-center">
+                            <CheckCircle size={18} className="text-white" />
+                          </div>
+                          <span style={{ fontFamily: "'Playfair Display', serif" }}>{sector}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
-                <div className="relative h-[500px] w-full animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-                  <img
-                    src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
-                    alt="Team of engineers"
-                    className="h-full w-full rounded-3xl object-cover shadow-2xl"
-                  />
-                  <div className="absolute -bottom-6 -right-6 h-full w-full rounded-3xl border-4 border-blue-500 -z-10"></div>
-                  <div className="absolute top-6 left-6 bg-white rounded-2xl p-4 shadow-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                      <p className="font-bold text-gray-900 font-body">ISO 9001:2015 Certified</p>
+                <div className="relative animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="space-y-6">
+                      <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
+                        <img
+                          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80"
+                          alt="Engineering team"
+                          className="w-full h-64 object-cover"
+                        />
+                      </div>
+                      <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
+                        <img
+                          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=400&q=80"
+                          alt="Industrial site"
+                          className="w-full h-48 object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-6 pt-12">
+                      <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
+                        <img
+                          src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&q=80"
+                          alt="Construction work"
+                          className="w-full h-48 object-cover"
+                        />
+                      </div>
+                      <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
+                        <img
+                          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&q=80"
+                          alt="Oil and gas facility"
+                          className="w-full h-64 object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-3xl p-8 shadow-2xl z-10">
+                    <div className="flex items-center gap-4">
+                      <div className="w-4 h-4 rounded-full bg-[#fbbf24] animate-pulse"></div>
+                      <p className="font-black text-gray-900 text-lg whitespace-nowrap" style={{ fontFamily: "'Playfair Display', serif" }}>ISO 9001:2015 Certified</p>
                     </div>
                   </div>
                 </div>
@@ -391,44 +442,44 @@ export default function AboutPage() {
           </section>
 
           {/* Journey Section */}
-          <section className="bg-gradient-to-br from-blue-50 to-cyan-50 py-24">
-            <div className="container mx-auto max-w-6xl px-4">
-              <div className="text-center mb-16">
-                <div className="inline-block px-4 py-2 rounded-full bg-white shadow-md text-blue-700 font-semibold text-sm mb-4">
-                  Our Evolution
+          <section className="bg-gradient-to-br from-[#dc2626]/5 via-[#ef4444]/5 to-[#f87171]/5 py-32">
+            <div className="container mx-auto max-w-7xl px-4">
+              <div className="text-center mb-20">
+                <div className="inline-block px-6 py-3 rounded-full bg-white shadow-xl text-[#dc2626] font-black text-sm mb-6 border-2 border-[#dc2626]/20" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  OUR EVOLUTION
                 </div>
-                <h2 className="text-4xl font-black text-gray-900 mb-4 font-headline">Our Inspiring Journey</h2>
-                <p className="mx-auto max-w-3xl text-gray-600 text-lg font-body">
+                <h2 className="text-5xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>Our Inspiring Journey</h2>
+                <p className="mx-auto max-w-3xl text-gray-600 text-xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Global Petrotech SPC's story unfolds in four transformative phases, each marking a significant
                   milestone in our quest for excellence.
                 </p>
               </div>
-              <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
                 <JourneyCard
-                  icon={<Sparkles size={28} />}
+                  icon={<Sparkles size={32} />}
                   title="Foundation"
-                  description="Born from a vision to support Oman's burgeoning infrastructure and industrial landscape with tailored solutions for SMEs, MED initiatives, and landscape engineering."
+                  description="Born from a vision to support Oman's burgeoning infrastructure and industrial landscape with tailored solutions."
                   delay="0s"
                   index={1}
                 />
                 <JourneyCard
-                  icon={<TrendingUp size={28} />}
+                  icon={<TrendingUp size={32} />}
                   title="Growth & Expansion"
-                  description="From modest installations, we scaled to handling complex, multi-disciplinary projects, mastering detailed planning, procurement, and on-site operations with precision."
+                  description="From modest installations, we scaled to handling complex, multi-disciplinary projects with precision."
                   delay="0.15s"
                   index={2}
                 />
                 <JourneyCard
-                  icon={<Award size={28} />}
+                  icon={<Award size={32} />}
                   title="Regional Recognition"
-                  description="Our adoption of cutting-edge technologies and deep regional insights propelled us to prominence across Oman and the GCC, with strong emphasis on sustainable practices."
+                  description="Our cutting-edge technologies propelled us to prominence across Oman and the GCC region."
                   delay="0.3s"
                   index={3}
                 />
                 <JourneyCard
-                  icon={<Target size={28} />}
+                  icon={<Target size={32} />}
                   title="Present Day"
-                  description="Today, we continue to innovate and evolve, tackling technically demanding projects while prioritizing continuous improvement, customer satisfaction, and ethical excellence."
+                  description="Today, we continue to innovate and evolve, tackling technically demanding projects with excellence."
                   delay="0.4s"
                   index={4}
                 />
@@ -436,68 +487,81 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Vision & Mission */}
-          <section className="py-24 bg-white">
-            <div className="container mx-auto max-w-6xl px-4">
+          {/* Vision & Mission with Images */}
+          <section className="py-32 bg-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
+            <div className="container mx-auto max-w-7xl px-4 relative">
               <div className="grid gap-12 lg:grid-cols-2">
-                <div className="rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-600 p-12 text-white shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
-                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm">
-                    <Target size={32} />
+                <div className="relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-all duration-500 hover:scale-105">
+                  <img
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+                    alt="Vision"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1e40af]/95 via-[#3b82f6]/95 to-[#60a5fa]/95 p-12 flex flex-col justify-center">
+                    <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-white/20 backdrop-blur-sm">
+                      <Target size={40} className="text-white" />
+                    </div>
+                    <h2 className="text-4xl font-black mb-6 text-white" style={{ fontFamily: "'Playfair Display', serif" }}>Our Vision</h2>
+                    <p className="text-xl leading-relaxed text-white/95" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      To be the leading provider of integrated engineering and construction solutions in Oman and the GCC,
+                      celebrated for excellence, innovation, and sustainable practices.
+                    </p>
                   </div>
-                  <h2 className="text-3xl font-black mb-6 font-headline">Our Vision</h2>
-                  <p className="text-lg leading-relaxed opacity-95 font-body">
-                    To be the leading provider of integrated engineering and construction solutions in Oman and the GCC,
-                    celebrated for excellence, innovation, and sustainable practices in oil & gas, power, energy, and
-                    infrastructure sectors.
-                  </p>
                 </div>
-                <div className="rounded-3xl bg-gradient-to-br from-gray-900 to-gray-800 p-12 text-white shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
-                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm">
-                    <Briefcase size={32} />
+                <div className="relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-all duration-500 hover:scale-105">
+                  <img
+                    src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80"
+                    alt="Mission"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#7c2d12]/95 via-[#92400e]/95 to-[#b45309]/95 p-12 flex flex-col justify-center">
+                    <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-white/20 backdrop-blur-sm">
+                      <Briefcase size={40} className="text-white" />
+                    </div>
+                    <h2 className="text-4xl font-black mb-6 text-white" style={{ fontFamily: "'Playfair Display', serif" }}>Our Mission</h2>
+                    <p className="text-xl leading-relaxed text-white/95" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      To deliver cost-effective, high-quality services that surpass client expectations, upholding the
+                      highest standards of safety, environmental responsibility, and ethical practices.
+                    </p>
                   </div>
-                  <h2 className="text-3xl font-black mb-6 font-headline">Our Mission</h2>
-                  <p className="text-lg leading-relaxed opacity-95 font-body">
-                    To deliver cost-effective, high-quality services that surpass client expectations, upholding the
-                    highest standards of safety, environmental responsibility, and ethical practices. We are dedicated to
-                    fostering local communities, empowering our workforce, and driving sustainable regional growth.
-                  </p>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Core Principles */}
-          <section className="bg-gradient-to-b from-white to-gray-50 py-24">
-            <div className="container mx-auto max-w-6xl px-4">
-              <div className="text-center mb-16">
-                <div className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm mb-4">
-                  What Drives Us
+          <section className="bg-gradient-to-b from-white to-gray-50 py-32">
+            <div className="container mx-auto max-w-7xl px-4">
+              <div className="text-center mb-20">
+                <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#7c3aed]/10 via-[#8b5cf6]/10 to-[#a855f7]/10 text-[#7c3aed] font-black text-sm mb-6 border-2 border-[#7c3aed]/20" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  WHAT DRIVES US
                 </div>
-                <h2 className="text-4xl font-black text-gray-900 mb-4 font-headline">Core Principles</h2>
-                <p className="mx-auto max-w-3xl text-gray-600 text-lg font-body">
+                <h2 className="text-5xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>Core Principles</h2>
+                <p className="mx-auto max-w-3xl text-gray-600 text-xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Four fundamental pillars that form the foundation of our operations and guide every decision we make.
                 </p>
               </div>
-              <div className="mt-16 grid gap-8 md:grid-cols-2">
+              <div className="mt-20 grid gap-10 md:grid-cols-2">
                 <PrincipleCard
-                  icon={<Star size={28} />}
+                  icon={<Star size={32} />}
                   title="Quality"
-                  description="Adhering to international standards like ISO 9001:2015 for superior project outcomes and client delight. We implement rigorous quality control measures at every stage, ensuring excellence in execution and lasting value for our clients."
+                  description="Adhering to international standards like ISO 9001:2015 for superior project outcomes and client delight. We implement rigorous quality control measures at every stage."
                 />
                 <PrincipleCard
-                  icon={<Zap size={28} />}
+                  icon={<Zap size={32} />}
                   title="Innovation"
-                  description="Embracing emerging technologies and advanced methodologies to enhance efficiency and solve complex industry challenges. We invest in cutting-edge tools, software, and training to stay ahead of the curve and deliver innovative solutions."
+                  description="Embracing emerging technologies and advanced methodologies to enhance efficiency and solve complex industry challenges with cutting-edge solutions."
                 />
                 <PrincipleCard
-                  icon={<ShieldCheck size={28} />}
+                  icon={<ShieldCheck size={32} />}
                   title="Safety"
-                  description="Zero-harm commitment through rigorous HSE protocols, comprehensive training programs, and a culture of protection for people, assets, and the environment. Safety is non-negotiable and embedded in our DNA."
+                  description="Zero-harm commitment through rigorous HSE protocols, comprehensive training programs, and a culture of protection for people and environment."
                 />
                 <PrincipleCard
-                  icon={<HeartHandshake size={28} />}
+                  icon={<HeartHandshake size={32} />}
                   title="Integrity"
-                  description="Transparent, accountable business practices that build lasting trust with all stakeholders. We conduct business with honesty, fairness, and ethical excellence, maintaining the highest standards of professional conduct."
+                  description="Transparent, accountable business practices that build lasting trust with all stakeholders. We conduct business with honesty, fairness, and ethical excellence."
                 />
               </div>
             </div>
@@ -507,43 +571,43 @@ export default function AboutPage() {
           <section id="services" className="py-24 bg-white">
             <div className="container mx-auto max-w-6xl px-4">
               <div className="text-center mb-16">
-                <div className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm mb-4">
-                  Our Expertise
+                <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#3b82f6]/10 via-[#60a5fa]/10 to-[#93c5fd]/10 text-[#3b82f6] font-black text-sm mb-6 border-2 border-[#3b82f6]/20" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  OUR EXPERTISE
                 </div>
-                <h2 className="text-4xl font-black text-gray-900 mb-4 font-headline">What We Do</h2>
-                <p className="mx-auto max-w-3xl text-gray-600 text-lg font-body">
+                <h2 className="text-5xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>What We Do</h2>
+                <p className="mx-auto max-w-3xl text-gray-600 text-xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                   We offer comprehensive end-to-end EPC (Engineering, Procurement, Construction) support and specialized
                   services across multiple disciplines.
                 </p>
               </div>
               <div className="mt-16 grid gap-6 md:grid-cols-2">
                 <ServiceItem
-                  icon={<Construction size={28} />}
+                  icon={<Construction size={32} />}
                   title="Civil & Mechanical Construction"
                   description="Comprehensive foundations, superstructures, and utility systems for industrial projects. From concrete works to structural installations, we deliver robust infrastructure solutions."
                 />
                 <ServiceItem
-                  icon={<GitMerge size={28} />}
+                  icon={<GitMerge size={32} />}
                   title="Flowlines & Hook-Up Works"
                   description="Expert wellhead installations, tie-ins, and commissioning for oil & gas facilities. Specialized in complex hook-up operations with precision and efficiency."
                 />
                 <ServiceItem
-                  icon={<Factory size={28} />}
+                  icon={<Factory size={32} />}
                   title="Structural Fabrication & Erection"
                   description="High-quality steel platforms, modular assemblies, equipment supports, and custom fabrications with certified welding and quality assurance."
                 />
                 <ServiceItem
-                  icon={<Waypoints size={28} />}
+                  icon={<Waypoints size={32} />}
                   title="Pipeline Installation & Maintenance"
                   description="Complete pipeline solutions including hydro-testing, excavation, and specialized piping like HDPE, GRE, and carbon steel with leak detection and integrity management."
                 />
                 <ServiceItem
-                  icon={<ClipboardList size={28} />}
+                  icon={<ClipboardList size={32} />}
                   title="Engineering & Design"
                   description="From conceptual studies to detailed engineering, 3D modeling using advanced software like AutoCAD, PDMS, and simulation tools for optimal design solutions."
                 />
                 <ServiceItem
-                  icon={<Users size={28} />}
+                  icon={<Users size={32} />}
                   title="Manpower Supply"
                   description="A skilled workforce of engineers, welders, riggers, operators, and support staff, certified to global standards like ASME, AWS, and CSWIP for excellence in execution."
                 />
@@ -557,11 +621,11 @@ export default function AboutPage() {
           <section id="projects" className="py-24 bg-white">
             <div className="container mx-auto max-w-6xl px-4">
               <div className="text-center mb-16">
-                <div className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm mb-4">
-                  Our Partners
+                <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#f59e0b]/10 via-[#fbbf24]/10 to-[#fcd34d]/10 text-[#f59e0b] font-black text-sm mb-6 border-2 border-[#f59e0b]/20" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  OUR PARTNERS
                 </div>
-                <h2 className="text-4xl font-black text-gray-900 mb-4 font-headline">Achievements & Partnerships</h2>
-                <p className="mx-auto max-w-3xl text-gray-600 text-lg font-body">
+                <h2 className="text-5xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>Achievements & Partnerships</h2>
+                <p className="mx-auto max-w-3xl text-gray-600 text-xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                   We've powered iconic projects for industry-leading clients, forging repeat business through proven
                   results and exceptional delivery.
                 </p>
@@ -583,11 +647,11 @@ export default function AboutPage() {
           <section className="py-24 bg-gray-50">
             <div className="container mx-auto max-w-6xl px-4">
               <div className="text-center mb-16">
-                <div className="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm mb-4">
-                  Our Fleet
+                <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#ec4899]/10 via-[#f472b6]/10 to-[#f9a8d4]/10 text-[#ec4899] font-black text-sm mb-6 border-2 border-[#ec4899]/20" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  OUR FLEET
                 </div>
-                <h2 className="text-4xl font-black text-gray-900 mb-4 font-headline">Equipment & Resources</h2>
-                <p className="mx-auto max-w-3xl text-gray-600 text-lg font-body">
+                <h2 className="text-5xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>Equipment & Resources</h2>
+                <p className="mx-auto max-w-3xl text-gray-600 text-xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Equipped with a robust fleet of essential machinery and a network to mobilize additional resources on
                   demand for any project scale.
                 </p>
@@ -613,30 +677,30 @@ export default function AboutPage() {
           <section className="py-24 bg-white">
             <div className="container mx-auto max-w-6xl px-4">
               <div className="text-center mb-16">
-                <div className="inline-block px-4 py-2 rounded-full bg-green-100 text-green-700 font-semibold text-sm mb-4">
-                  Our Impact
+                <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#0d9488]/10 via-[#14b8a6]/10 to-[#2dd4bf]/10 text-[#0d9488] font-black text-sm mb-6 border-2 border-[#0d9488]/20" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  OUR IMPACT
                 </div>
-                <h2 className="text-4xl font-black text-gray-900 mb-4 font-headline">
+                <h2 className="text-5xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Sustainability &amp; CSR
                 </h2>
-                <p className="mx-auto max-w-3xl text-gray-600 text-lg font-body">
+                <p className="mx-auto max-w-3xl text-gray-600 text-xl" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Committed to building a sustainable future through eco-friendly practices and meaningful community
                   engagement.
                 </p>
               </div>
               <div className="grid md:grid-cols-3 gap-8">
                 <CSRCard
-                  icon={<Leaf size={24} />}
+                  icon={<Leaf size={28} />}
                   title="Environmental Stewardship"
                   description="Prioritizing energy efficiency, waste recycling, water conservation, and the use of eco-friendly materials and innovations."
                 />
                 <CSRCard
-                  icon={<BookOpen size={24} />}
+                  icon={<BookOpen size={28} />}
                   title="Local Development"
                   description="Investing in local communities through education, training programs, and creating employment opportunities for Omani talent."
                 />
                 <CSRCard
-                  icon={<Globe size={24} />}
+                  icon={<Globe size={28} />}
                   title="Community Engagement"
                   description="Actively participating in and sponsoring local events, fostering strong relationships and contributing to social well-being."
                 />
@@ -644,15 +708,15 @@ export default function AboutPage() {
             </div>
           </section>
 
-          <section className="py-24 bg-gradient-to-br from-blue-500 to-cyan-500 text-white">
+          <section className="py-24 bg-gradient-to-br from-[#1e3a8a] via-[#3b82f6] to-[#60a5fa] text-white">
             <div className="container mx-auto max-w-6xl px-4 text-center">
               <div className="mb-8">
-                <div className="inline-block p-4 rounded-full bg-white/20">
-                  <TrendingUp size={40} />
+                <div className="inline-block p-6 rounded-full bg-white/20 backdrop-blur-sm">
+                  <TrendingUp size={48} />
                 </div>
               </div>
-              <h2 className="text-4xl font-black mb-4 font-headline">Looking Ahead</h2>
-              <p className="mx-auto max-w-3xl text-lg opacity-90 mb-8 font-body">
+              <h2 className="text-5xl font-black mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>Looking Ahead</h2>
+              <p className="mx-auto max-w-3xl text-xl opacity-90 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
                 As we expand across the GCC, we are excited to form strategic alliances, diversify our services with
                 digital tools and automation, and continue nurturing talent for tomorrow&apos;s challenges. At Global
                 Petrotech SPC, we&apos;re not just building projects—we&apos;re shaping a sustainable future.
@@ -664,7 +728,8 @@ export default function AboutPage() {
                     e.preventDefault();
                     handleScrollTo('contact');
                   }}
-                  className="px-8 py-4 rounded-full bg-white text-blue-600 font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="px-10 py-5 rounded-full bg-white text-[#1e3a8a] font-black shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 text-lg"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Join Our Journey
                 </Link>
@@ -676,28 +741,28 @@ export default function AboutPage() {
             <div className="container mx-auto max-w-6xl px-4">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <h3 className="font-bold text-lg mb-2 font-headline">Get in Touch</h3>
+                  <h3 className="font-bold text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Get in Touch</h3>
                   <div className="flex justify-center items-center gap-2 mb-1">
                     <Mail size={16} />
-                    <a href="mailto:oiltech.om@gmail.com" className="hover:underline font-body">
+                    <a href="mailto:oiltech.om@gmail.com" className="hover:underline" style={{ fontFamily: "'Playfair Display', serif" }}>
                       oiltech.om@gmail.com
                     </a>
                   </div>
-                  <div className="flex justify-center items-center gap-2 font-body">
+                  <div className="flex justify-center items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                     <Phone size={16} />
                     <span>+968 99603280</span>
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg mb-2 font-headline">Our Location</h3>
-                  <div className="flex justify-center items-center gap-2 font-body">
+                  <h3 className="font-bold text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Our Location</h3>
+                  <div className="flex justify-center items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                     <MapPin size={16} />
                     <span>Ghala, Muscat, Sultanate of Oman</span>
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg mb-2 font-headline">Certifications</h3>
-                  <div className="flex justify-center items-center gap-3 font-body">
+                  <h3 className="font-bold text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Certifications</h3>
+                  <div className="flex justify-center items-center gap-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                     <span className="px-3 py-1 rounded-full bg-blue-200 text-blue-800 text-sm">JSRS</span>
                     <span className="px-3 py-1 rounded-full bg-green-200 text-green-800 text-sm">Riyada</span>
                     <span className="px-3 py-1 rounded-full bg-yellow-200 text-yellow-800 text-sm">ISO 9001:2015</span>
