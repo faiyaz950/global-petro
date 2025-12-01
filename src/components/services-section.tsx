@@ -9,40 +9,47 @@ import {
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight } from 'lucide-react';
 
 const CORE_SERVICES = [
   {
-    title: 'Engineering Solutions',
+    title: 'EPC & Project Management',
     description:
-      'Comprehensive engineering services for complex industrial projects',
+      'End-to-end engineering, procurement, and construction services with comprehensive project management',
     imageId: 'service-engineering',
+    href: '/services/epc-project-management',
   },
   {
-    title: 'Power Systems',
-    description: 'Advanced power generation and distribution solutions',
-    imageId: 'service-power',
+    title: 'Oil & Gas Field Services',
+    description: 'Specialized field services for oil and gas operations and facilities',
+    imageId: 'project-1',
+    href: '/services/oil-gas-field-services',
+  },
+  {
+    title: 'Civil & Mechanical Construction',
+    description: 'Expert construction services for civil and mechanical infrastructure projects',
+    imageId: 'service-construction',
+    href: '/services/civil-mechanical-construction',
   },
   {
     title: 'Infrastructure Development',
-    description: 'Building robust infrastructure for modern industries',
+    description: 'Building robust infrastructure for modern industries and communities',
     imageId: 'service-infrastructure',
+    href: '/services/infrastructure-development',
   },
   {
-    title: 'Construction Services',
-    description: 'Expert construction management and execution',
-    imageId: 'service-construction',
-  },
-  {
-    title: 'Maintenance & Support',
-    description: 'Reliable maintenance services for optimal performance',
+    title: 'Manpower Supply & Equipment Rental',
+    description: 'Skilled workforce and equipment rental solutions for your project needs',
     imageId: 'service-maintenance',
+    href: '/services/manpower-supply-equipment-rental',
   },
   {
-    title: 'Industrial Automation',
-    description: 'Smart automation solutions for enhanced efficiency',
-    imageId: 'service-automation',
+    title: 'QHSE & Quality Assurance',
+    description: 'Quality, Health, Safety, and Environment management and assurance services',
+    imageId: 'policy-hse',
+    href: '/services/qhse-quality-assurance',
   },
 ];
 
@@ -122,32 +129,34 @@ export default function ServicesSection() {
                     className="pl-4 md:basis-1/2 lg:basis-1/4"
                   >
                     <div className="p-1">
-                      <Card className="group relative h-[440px] overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-[#932445]/20">
-                        {image && (
-                          <Image
-                            src={image.imageUrl}
-                            alt={service.title}
-                            data-ai-hint={image.imageHint}
-                            fill
-                            className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                          />
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-300 group-hover:from-black/90"></div>
-                        <CardContent className="relative h-full flex flex-col justify-end p-6 text-white">
-                          <h3
-                            className="text-2xl font-bold mb-2 transition-transform duration-300 group-hover:-translate-y-2"
-                            style={{ fontFamily: 'Playfair Display, serif' }}
-                          >
-                            {service.title}
-                          </h3>
-                          <p className="text-sm opacity-80 mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                            {service.description}
-                          </p>
-                          <button className="flex items-center gap-2 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                            Learn More <ArrowRight className="w-4 h-4" />
-                          </button>
-                        </CardContent>
-                      </Card>
+                      <Link href={service.href}>
+                        <Card className="group relative h-[440px] overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-[#932445]/20 cursor-pointer">
+                          {image && (
+                            <Image
+                              src={image.imageUrl}
+                              alt={service.title}
+                              data-ai-hint={image.imageHint}
+                              fill
+                              className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                            />
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-300 group-hover:from-black/90"></div>
+                          <CardContent className="relative h-full flex flex-col justify-end p-6 text-white">
+                            <h3
+                              className="text-2xl font-bold mb-2 transition-transform duration-300 group-hover:-translate-y-2"
+                              style={{ fontFamily: 'Playfair Display, serif' }}
+                            >
+                              {service.title}
+                            </h3>
+                            <p className="text-sm opacity-80 mb-4 transition-transform duration-300 group-hover:-translate-y-2">
+                              {service.description}
+                            </p>
+                            <div className="flex items-center gap-2 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                              Learn More <ArrowRight className="w-4 h-4" />
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </Link>
                     </div>
                   </CarouselItem>
                 );

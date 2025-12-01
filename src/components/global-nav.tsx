@@ -1,21 +1,21 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight, ChevronDown, Sparkles, Settings, Zap, Building2, HardHat, Wrench, Factory } from 'lucide-react';
+import { Menu, X, ChevronRight, ChevronDown, Sparkles, Settings, Zap, Building2, HardHat, Wrench, Factory, ClipboardList, Fuel, Users, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 const navLinks = [
   { 
-    href: '#services', 
+    href: '/services', 
     label: 'Services',
     hasDropdown: true,
     submenu: [
-      { href: '#engineering', label: 'Engineering Solutions', icon: Settings },
-      { href: '#power', label: 'Power Systems', icon: Zap },
-      { href: '#infrastructure', label: 'Infrastructure', icon: Building2 },
-      { href: '#construction', label: 'Construction', icon: HardHat },
-      { href: '#maintenance', label: 'Maintenance', icon: Wrench },
-      { href: '#automation', label: 'Automation', icon: Factory },
+      { href: '/services/epc-project-management', label: 'EPC & Project Management', icon: ClipboardList },
+      { href: '/services/oil-gas-field-services', label: 'Oil & Gas Field Services', icon: Fuel },
+      { href: '/services/civil-mechanical-construction', label: 'Civil & Mechanical Construction', icon: HardHat },
+      { href: '/services/infrastructure-development', label: 'Infrastructure Development', icon: Building2 },
+      { href: '/services/manpower-supply-equipment-rental', label: 'Manpower Supply & Equipment Rental', icon: Users },
+      { href: '/services/qhse-quality-assurance', label: 'QHSE & Quality Assurance', icon: ShieldCheck },
     ]
   },
   { href: '/about', label: 'About Us' },
@@ -62,6 +62,9 @@ export default function GlobalNav() {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    } else if (href.startsWith('/')) {
+      // Let Next.js Link handle navigation
+      window.location.href = href;
     }
   };
 
@@ -226,12 +229,9 @@ export default function GlobalNav() {
                           {link.submenu.map((item, subIndex) => {
                             const Icon = item.icon;
                             return (
-                              <a
+                              <Link
                                 key={item.href}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  handleNavClick(item.href);
-                                }}
+                                href={item.href}
                                 className="group flex items-center gap-4 px-5 py-4 rounded-2xl hover:bg-gradient-to-r hover:from-[#932445]/5 hover:via-[#b8305a]/5 hover:to-[#d63865]/5 transition-all duration-500 hover:scale-105 hover:shadow-lg"
                               >
                                 <div className="relative">
@@ -247,7 +247,7 @@ export default function GlobalNav() {
                                   <div className="h-0.5 w-0 bg-gradient-to-r from-[#932445] to-[#d63865] group-hover:w-full transition-all duration-500 mt-1 rounded-full" />
                                 </div>
                                 <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-[#932445] group-hover:translate-x-2 transition-all duration-500" />
-                              </a>
+                              </Link>
                             );
                           })}
                         </div>
@@ -334,37 +334,45 @@ export default function GlobalNav() {
         <nav className="p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-200px)]">
           {navLinks.map((link, index) => (
             <div key={link.href}>
-              <a
-                href={link.href}
-                onClick={(e) => {
-                  if (link.hasDropdown) {
+              {link.hasDropdown ? (
+                <button
+                  onClick={(e) => {
                     e.preventDefault();
                     setMobileDropdownOpen(mobileDropdownOpen === index ? null : index);
-                  } else {
-                    handleNavClick(link.href);
-                    if (!link.href.startsWith('#')) {
-                       e.preventDefault();
-                       window.location.href = link.href;
-                    }
-                  }
-                }}
-                className={`group flex items-center justify-between px-6 py-4 rounded-2xl font-semibold tracking-wide transition-all duration-500 ${
-                  activeSection === link.href
-                    ? 'bg-gradient-to-r from-[#932445] via-[#b8305a] to-[#d63865] text-white shadow-xl scale-105 animate-gradient'
-                    : 'text-gray-700 hover:bg-gradient-to-r hover:from-[#932445]/10 hover:via-[#b8305a]/10 hover:to-[#d63865]/10 hover:shadow-lg hover:scale-105 active:scale-95'
-                }`}
-              >
-                <span className="relative z-10">{link.label}</span>
-                {link.hasDropdown ? (
+                  }}
+                  className={`group flex items-center justify-between w-full px-6 py-4 rounded-2xl font-semibold tracking-wide transition-all duration-500 ${
+                    activeSection === link.href
+                      ? 'bg-gradient-to-r from-[#932445] via-[#b8305a] to-[#d63865] text-white shadow-xl scale-105 animate-gradient'
+                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-[#932445]/10 hover:via-[#b8305a]/10 hover:to-[#d63865]/10 hover:shadow-lg hover:scale-105 active:scale-95'
+                  }`}
+                >
+                  <span className="relative z-10">{link.label}</span>
                   <ChevronDown className={`w-5 h-5 transition-transform duration-500 ${
                     mobileDropdownOpen === index ? 'rotate-180' : ''
                   }`} />
-                ) : (
+                </button>
+              ) : (
+                <Link
+                  href={link.href}
+                  onClick={(e) => {
+                    if (link.href.startsWith('#')) {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`group flex items-center justify-between px-6 py-4 rounded-2xl font-semibold tracking-wide transition-all duration-500 ${
+                    activeSection === link.href
+                      ? 'bg-gradient-to-r from-[#932445] via-[#b8305a] to-[#d63865] text-white shadow-xl scale-105 animate-gradient'
+                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-[#932445]/10 hover:via-[#b8305a]/10 hover:to-[#d63865]/10 hover:shadow-lg hover:scale-105 active:scale-95'
+                  }`}
+                >
+                  <span className="relative z-10">{link.label}</span>
                   <ChevronRight className={`w-5 h-5 transition-transform duration-500 ${
                     activeSection === link.href ? 'translate-x-2' : 'group-hover:translate-x-2'
                   }`} />
-                )}
-              </a>
+                </Link>
+              )}
 
               {/* Mobile Dropdown */}
               {link.hasDropdown && mobileDropdownOpen === index && (
@@ -372,19 +380,17 @@ export default function GlobalNav() {
                   {link.submenu.map((item) => {
                     const Icon = item.icon;
                     return (
-                      <a
+                      <Link
                         key={item.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleNavClick(item.href);
-                        }}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
                         className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gradient-to-r hover:from-[#932445]/10 hover:to-[#d63865]/10 transition-all duration-500 group hover:scale-105 hover:shadow-md"
                       >
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#932445]/10 to-[#d63865]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                           <Icon className="w-5 h-5 text-[#932445]" />
                         </div>
                         <span className="text-sm font-medium text-gray-700 group-hover:text-[#932445] transition-colors duration-500">{item.label}</span>
-                      </a>
+                      </Link>
                     );
                   })}
                 </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { MapPin, Phone, Mail, Sparkles, Building2, ArrowRight, Award, Globe } from 'lucide-react';
 
 export default function Footer() {
@@ -15,12 +16,12 @@ export default function Footer() {
   ];
   
   const servicesLinks = [
-    { href: '#services', label: 'Engineering Solutions' },
-    { href: '#services', label: 'Power Systems' },
-    { href: '#services', label: 'Infrastructure' },
-    { href: '#services', label: 'Construction' },
-    { href: '#services', label: 'Maintenance' },
-    { href: '#services', label: 'Automation' },
+    { href: '/services/civil-mechanical-construction', label: 'Civil & Mechanical Construction' },
+    { href: '/services/flowlines-hook-up-works', label: 'Flowlines & Hook-Up Works' },
+    { href: '/services/structural-fabrication-erection', label: 'Structural Fabrication & Erection' },
+    { href: '/services/pipeline-installation-maintenance', label: 'Pipeline Installation & Maintenance' },
+    { href: '/services/engineering-design', label: 'Engineering & Design' },
+    { href: '/services/manpower-supply', label: 'Manpower Supply' },
   ];
 
   return (
@@ -315,10 +316,10 @@ export default function Footer() {
               <ul className="space-y-4">
                 {servicesLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="footer-link text-gray-400 flex items-center group">
+                    <Link href={link.href} className="footer-link text-gray-400 flex items-center group">
                       <Sparkles className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

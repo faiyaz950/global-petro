@@ -143,31 +143,41 @@ const ServiceItem = ({
   icon,
   title,
   description,
+  href,
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
-}) => (
-  <div className="group relative glass-effect rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border-2 border-white/50 hover:border-[#932445]/30 hover-tilt animate-scaleIn" style={{ fontFamily: "'Playfair Display', serif" }}>
-    {/* Animated Background Gradient */}
-    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#932445]/0 via-[#932445]/0 to-[#d63865]/0 group-hover:from-[#932445]/5 group-hover:via-[#d63865]/10 group-hover:to-[#932445]/5 transition-all duration-700 -z-10"></div>
-    
-    <div className="flex items-start gap-5 relative z-10">
-      <div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-[#932445] to-[#d63865] transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-md flex-shrink-0">
-        <div className="text-white">{icon}</div>
+  href?: string;
+}) => {
+  const content = (
+    <div className="group relative glass-effect rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border-2 border-white/50 hover:border-[#932445]/30 hover-tilt animate-scaleIn cursor-pointer" style={{ fontFamily: "'Playfair Display', serif" }}>
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#932445]/0 via-[#932445]/0 to-[#d63865]/0 group-hover:from-[#932445]/5 group-hover:via-[#d63865]/10 group-hover:to-[#932445]/5 transition-all duration-700 -z-10"></div>
+      
+      <div className="flex items-start gap-5 relative z-10">
+        <div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-[#932445] to-[#d63865] transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-md flex-shrink-0">
+          <div className="text-white">{icon}</div>
+        </div>
+        <div>
+          <h4 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-[#932445] transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</h4>
+          <p className="text-gray-600 leading-relaxed text-sm" style={{ fontFamily: "'Playfair Display', serif" }}>{description}</p>
+        </div>
       </div>
-      <div>
-        <h4 className="font-bold text-lg text-gray-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</h4>
-        <p className="text-gray-600 leading-relaxed text-sm" style={{ fontFamily: "'Playfair Display', serif" }}>{description}</p>
+      
+      {/* Shimmer Effect */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
       </div>
     </div>
-    
-    {/* Shimmer Effect */}
-    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-    </div>
-  </div>
-);
+  );
+
+  if (href) {
+    return <Link href={href}>{content}</Link>;
+  }
+
+  return content;
+};
 
 const AchievementCard = ({ icon, text, value }: { icon: React.ReactNode; text: string; value: string }) => (
   <div className="group relative glass-effect rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-500 border-2 border-white/50 hover:border-[#932445]/30 hover-tilt animate-scaleIn" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -839,31 +849,37 @@ export default function AboutPage() {
                   icon={<Construction size={32} />}
                   title="Civil & Mechanical Construction"
                   description="Comprehensive foundations, superstructures, and utility systems for industrial projects. From concrete works to structural installations, we deliver robust infrastructure solutions that stand the test of time."
+                  href="/services/civil-mechanical-construction"
                 />
                 <ServiceItem
                   icon={<GitMerge size={32} />}
                   title="Flowlines & Hook-Up Works"
                   description="Expert wellhead installations, tie-ins, and commissioning for oil & gas facilities. Specialized in complex hook-up operations with precision, efficiency, and adherence to industry standards."
+                  href="/services/flowlines-hook-up-works"
                 />
                 <ServiceItem
                   icon={<Factory size={32} />}
                   title="Structural Fabrication & Erection"
                   description="High-quality steel platforms, modular assemblies, equipment supports, and custom fabrications with certified welding and quality assurance. Every component meets rigorous quality standards."
+                  href="/services/structural-fabrication-erection"
                 />
                 <ServiceItem
                   icon={<Waypoints size={32} />}
                   title="Pipeline Installation & Maintenance"
                   description="Complete pipeline solutions including hydro-testing, excavation, and specialized piping like HDPE, GRE, and carbon steel with leak detection and integrity management systems."
+                  href="/services/pipeline-installation-maintenance"
                 />
                 <ServiceItem
                   icon={<ClipboardList size={32} />}
                   title="Engineering & Design"
                   description="From conceptual studies to detailed engineering, 3D modeling using advanced software like AutoCAD, PDMS, and simulation tools for optimal design solutions that maximize efficiency and minimize costs."
+                  href="/services/engineering-design"
                 />
                 <ServiceItem
                   icon={<Users size={32} />}
                   title="Manpower Supply"
                   description="A skilled workforce of engineers, welders, riggers, operators, and support staff, certified to global standards like ASME, AWS, and CSWIP. Over 160 professionals ready to deliver excellence in execution."
+                  href="/services/manpower-supply"
                 />
               </div>
             </div>
@@ -1268,3 +1284,4 @@ export default function AboutPage() {
   );
 }
 
+;
