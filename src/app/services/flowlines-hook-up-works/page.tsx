@@ -1,11 +1,51 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { GitMerge, CheckCircle, Shield, Award, Users, Target, Zap } from 'lucide-react';
 import GlobalNav from '@/components/global-nav';
 import Link from 'next/link';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+
+// Service-related images and corresponding texts
+const heroSlides = [
+  {
+    imageId: 'well-hookup',
+    text: 'Expert wellhead installations, tie-ins, and commissioning for oil & gas facilities. Specialized in complex hook-up operations with precision, efficiency, and adherence to industry standards.'
+  },
+  {
+    imageId: 'project-1',
+    text: 'Wellhead Installations and Production Flowline Construction'
+  },
+  {
+    imageId: 'oil-field-development',
+    text: 'Tie-In Operations and Facility Integration Services'
+  },
+  {
+    imageId: 'field-development',
+    text: 'Flowline Construction from Wellheads to Gathering Stations'
+  },
+  {
+    imageId: 'oil-well-site',
+    text: 'Commissioning and Start-Up Support for Oil & Gas Facilities'
+  },
+  {
+    imageId: 'well-hookup',
+    text: 'Complex Hook-Up Operations with Precision and Efficiency'
+  }
+];
 
 export default function FlowlinesHookUpWorksPage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentSlideData = heroSlides[currentSlide];
   return (
     <>
       <style jsx>{`
@@ -13,6 +53,11 @@ export default function FlowlinesHookUpWorksPage() {
 
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideFade {
+          from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
 
@@ -78,8 +123,31 @@ export default function FlowlinesHookUpWorksPage() {
         <main className="flex-1">
           {/* Hero Section */}
           <section className="relative overflow-hidden bg-black py-32 pt-56 min-h-[80vh] flex items-center">
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
+            {/* Background Image Slider */}
+            <div className="absolute inset-0">
+              {heroSlides.map((slide, index) => {
+                const slideImage = PlaceHolderImages.find(img => img.id === slide.imageId) || PlaceHolderImages.find(img => img.id === 'well-hookup');
+                return (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${
+                      index === currentSlide ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <img
+                      src={slideImage?.imageUrl || 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80'}
+                      alt={slideImage?.description || 'Flowlines & Hook-Up Works'}
+                      className="w-full h-full object-cover"
+                      style={{ filter: 'brightness(0.7)' }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            
+            {/* Gradient Overlays - Minimal opacity */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/25"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-transparent to-black/15"></div>
             
             <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(147, 36, 69, 0.15)' }}></div>
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(147, 36, 69, 0.1)', animationDelay: '1s' }}></div>
@@ -107,9 +175,33 @@ export default function FlowlinesHookUpWorksPage() {
 
               <div className="w-32 h-1 mb-8 mx-auto rounded-full animate-fadeIn" style={{ background: 'linear-gradient(90deg, transparent, #932445, #fcd34d, #932445, transparent)' }}></div>
 
-              <p className="text-lg md:text-xl text-white/70 text-center max-w-2xl mx-auto mb-10 font-light tracking-wide animate-fadeIn" style={{ animationDelay: '0.2s', fontFamily: "'Playfair Display', serif" }}>
-                Expert wellhead installations, tie-ins, and commissioning for oil & gas facilities. Specialized in complex hook-up operations with precision, efficiency, and adherence to industry standards.
+              {/* Subtitle with dynamic text */}
+              <p 
+                key={currentSlide}
+                className="text-lg md:text-xl text-white/90 text-center max-w-2xl mx-auto mb-10 font-light tracking-wide" 
+                style={{ 
+                  fontFamily: "'Playfair Display', serif",
+                  animation: 'slideFade 0.8s ease-out'
+                }}
+              >
+                {currentSlideData.text}
               </p>
+              
+              {/* Slider Indicators */}
+              <div className="flex justify-center gap-2 mt-6">
+                {heroSlides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      index === currentSlide 
+                        ? 'w-8 bg-white' 
+                        : 'w-2 bg-white/40 hover:bg-white/60'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </section>
 

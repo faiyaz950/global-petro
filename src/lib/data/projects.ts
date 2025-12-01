@@ -11,7 +11,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Involved construction and commissioning of wellhead flowlines and hook-up systems for oil & gas facilities in the Karim West Field. Scope included mechanical installations, testing, and integration with existing infrastructure, ensuring seamless production startup. This early project marked the company\'s entry into specialized oil & gas hook-up services, emphasizing safety and efficiency.',
-    imageId: 'project-1',
+    imageId: 'well-hookup',
   },
   {
     id: 'proj-2',
@@ -23,7 +23,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Re-sheeting of access roads in remote oil field areas (Marmul and Nimr Karim West). Key activities: Surface preparation, gravel laying, compaction using vibratory rollers, and quality checks for durability. Aimed at improving logistics and safety for field operations; completed on time, enhancing mobility in harsh desert terrains.',
-    imageId: 'project-4',
+    imageId: 'road-construction',
   },
   {
     id: 'proj-3',
@@ -35,7 +35,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Development of new grader roads and re-sheeting of existing ones for PDO\'s operational sites. Included excavation, grading, material sourcing, and asphalt/gravel application. This infrastructure project supported heavy vehicle access, reducing downtime and aligning with sustainable road maintenance practices.',
-    imageId: 'project-4',
+    imageId: 'grader-road',
   },
   {
     id: 'proj-4',
@@ -47,7 +47,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Specialized crossing construction using graders and asphalt for the Nimr-C oil development. Scope: Site clearing, foundation work, asphalt paving, and integration with pipeline routes. Focused on logistically complex intersections to facilitate safe crossings for equipment and personnel.',
-    imageId: 'project-1',
+    imageId: 'oil-field-road',
   },
   {
     id: 'proj-5',
@@ -59,7 +59,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Extensive 35 km trenching for pipeline installation, plus painting and corrosion protection for pipe supports. Activities: Manual and mechanical excavation, backfilling, hydro-testing preparation, and surface preparation. A multi-contractor collaboration that demonstrated the company\'s capability in large-scale pipeline infrastructure under PDO standards.',
-    imageId: 'project-5',
+    imageId: 'pipeline-trenching',
   },
   {
     id: 'proj-6',
@@ -71,7 +71,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Trenching and laying of fiber optic or power cables over a significant distance between Qarn Alam and Saih Rawl gas fields. Included route surveying, excavation, cable pulling, and burial to international safety specs. Enhanced connectivity for Oman\'s gas operations, with emphasis on minimal environmental disruption.',
-    imageId: 'project-5',
+    imageId: 'cable-trenching',
   },
   {
     id: 'proj-7',
@@ -83,7 +83,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Expansion of Optical Fiber Cable (OFC) network in the Nimr area for telecommunications. Scope: Trenching, cable installation, jointing, and testing. Supported NAWRAS (now Ooredoo) in improving rural connectivity, involving coordinated fieldwork with minimal downtime.',
-    imageId: 'project-5',
+    imageId: 'fiber-optic',
   },
   {
     id: 'proj-8',
@@ -95,7 +95,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Installation of perimeter fencing for telecom infrastructure sites. Included fabrication, erection of steel fencing, gate installations, and anti-climb features. Ensured site security and compliance with HSE protocols, complementing the OFC expansion for protected asset management.',
-    imageId: 'project-6',
+    imageId: 'security-fencing',
   },
   {
     id: 'proj-19',
@@ -107,7 +107,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Comprehensive development in the Mabrouk North East oil field, including civil, mechanical, and hook-up works. Activities: Well site preparation, flowline construction, structural fabrication, and commissioning. A multi-disciplinary project involving collaboration with OGC and ORPIC, delivering enhanced production capacity with zero incidents.',
-    imageId: 'project-1',
+    imageId: 'oil-field-development',
   },
   {
     id: 'proj-20',
@@ -119,7 +119,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Civil foundations, electrical installations, and utility systems for new wells in Harweel and Birba clusters. Scope: Concrete works, cabling, lighting, and grounding systems. Provided EPC support to L&T, ensuring reliable power and control for deep-well drilling operations in sour gas environments.',
-    imageId: 'project-6',
+    imageId: 'oil-well-site',
   },
   {
     id: 'proj-21',
@@ -131,7 +131,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Hand-excavation along the route for 14-inch and 32-inch pipelines from Fahud to Sohar refinery. Focused on sensitive areas requiring manual labor to avoid damage to existing lines; included trenching, shoring, and backfill. Critical for Oman\'s crude oil transport network expansion.',
-    imageId: 'project-5',
+    imageId: 'pipeline-excavation',
   },
   {
     id: 'proj-22',
@@ -143,7 +143,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'North East development involving well hook-ups, flowlines, and surface facilities in Raba, Hanya, and Sehrowal fields. Activities: Mechanical installations, testing, and integration. A complex greenfield project that boosted PDO\'s exploration output through innovative engineering solutions.',
-    imageId: 'project-1',
+    imageId: 'field-development',
   },
   {
     id: 'proj-23',
@@ -155,7 +155,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Completed',
     description:
       'Off-plot mechanical works for Sour Gas (SAS) facilities in Fahud, Yibal, and Kauther. Included piping, equipment erection, hook-ups, and commissioning. Supported Punj Lloyd in handling hazardous sour gas environments, with rigorous HSE adherence for safe operations.',
-    imageId: 'project-6',
+    imageId: 'oil-gas-facility',
   },
   {
     id: 'proj-24',
@@ -167,7 +167,7 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Ongoing',
     description:
       'Phase of the Sales Gas Project involving wellhead developments (SASWH-103). Current activities: Engineering design, procurement, construction of flowlines, and testing. Aimed at increasing gas sales capacity; reflects the company\'s ongoing role in PDO\'s energy transition initiatives.',
-    imageId: 'project-5',
+    imageId: 'gas-facility',
   },
   {
     id: 'proj-25',
@@ -179,6 +179,6 @@ export const PROJECTS_DATA: Project[] = [
     status: 'Ongoing',
     description:
       'Manual excavation for an 18-inch carbon steel (CS) pipeline from Khulod to Yibal for Occidental Petroleum (OXY). Scope: Precise digging in constrained areas, pipe bedding, and preparation for installation. Supports OXY\'s upstream gas production; emphasizes skilled manpower for high-precision work.',
-    imageId: 'project-5',
+    imageId: 'pipeline-installation',
   },
 ];

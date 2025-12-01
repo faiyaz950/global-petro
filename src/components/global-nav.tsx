@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronRight, ChevronDown, Sparkles, Settings, Zap, Building2, HardHat, Wrench, Factory, ClipboardList, Fuel, Users, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 const navLinks = [
+  { href: '/', label: 'Home' },
   { 
-    href: '/services', 
+    href: '#services', 
     label: 'Services',
     hasDropdown: true,
     submenu: [
@@ -20,7 +21,6 @@ const navLinks = [
   },
   { href: '/about', label: 'About Us' },
   { href: '/our-work', label: 'Our Work' },
-  { href: '#policies', label: 'Policies' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -31,6 +31,7 @@ export default function GlobalNav() {
   const [hoveredLink, setHoveredLink] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,13 +55,47 @@ export default function GlobalNav() {
     };
   }, []);
 
-  const handleNavClick = (href) => {
+  // Handle click outside dropdown to close it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      // Check if click is outside the dropdown container
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
+        setActiveDropdown(null);
+        setHoveredLink(null);
+      }
+    };
+
+    if (activeDropdown !== null) {
+      // Use a small delay to avoid closing immediately when opening
+      const timeoutId = setTimeout(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+      }, 100);
+      
+      return () => {
+        clearTimeout(timeoutId);
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [activeDropdown]);
+
+  const handleNavClick = (href, hasDropdown = false) => {
     setMobileMenuOpen(false);
-    setActiveDropdown(null);
+    // Don't close dropdown if it has dropdown - let hover handlers manage it
+    if (!hasDropdown) {
+      setActiveDropdown(null);
+    }
     if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      // Check if we're on the home page
+      const isHomePage = window.location.pathname === '/';
+      if (isHomePage) {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Navigate to home page with hash
+        window.location.href = `/${href}`;
       }
     } else if (href.startsWith('/')) {
       // Let Next.js Link handle navigation
@@ -168,13 +203,12 @@ export default function GlobalNav() {
                 <div 
                   key={link.href}
                   className="relative"
+                  ref={link.hasDropdown && activeDropdown === index ? dropdownRef : null}
                   onMouseEnter={() => {
                     setHoveredLink(index);
-                    if (link.hasDropdown) setActiveDropdown(index);
-                  }}
-                  onMouseLeave={() => {
-                    setHoveredLink(null);
-                    if (link.hasDropdown) setActiveDropdown(null);
+                    if (link.hasDropdown) {
+                      setActiveDropdown(index);
+                    }
                   }}
                 >
                   <Link
@@ -182,7 +216,7 @@ export default function GlobalNav() {
                     onClick={(e) => {
                       if (link.href.startsWith('#')) {
                         e.preventDefault();
-                        handleNavClick(link.href);
+                        handleNavClick(link.href, link.hasDropdown);
                       }
                     }}
                     className={`group relative px-6 py-3.5 rounded-2xl font-semibold text-sm tracking-wide transition-all duration-500 flex items-center gap-2 ${
@@ -213,7 +247,13 @@ export default function GlobalNav() {
 
                   {/* Premium Dropdown Menu */}
                   {link.hasDropdown && activeDropdown === index && (
-                    <div className="absolute top-full left-0 mt-3 w-72 dropdown-enter">
+                    <div 
+                      className="absolute top-full left-0 mt-3 w-72 dropdown-enter"
+                      onMouseEnter={() => {
+                        setHoveredLink(index);
+                        setActiveDropdown(index);
+                      }}
+                    >
                       <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden backdrop-blur-xl">
                         {/* Elegant Header */}
                         <div className="bg-gradient-to-r from-[#932445] via-[#b8305a] to-[#d63865] animate-gradient px-6 py-4 relative overflow-hidden">

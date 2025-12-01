@@ -137,6 +137,114 @@
       "description": "A quality control inspector examining a manufactured part.",
       "imageUrl": "https://images.unsplash.com/photo-1581092448348-5221b6a941b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxxdWFsaXR5JTIwY29udHJvbHxlbnwwfHx8fDE3NjM3NTI5NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "quality control"
+    },
+    {
+      "id": "well-hookup",
+      "description": "Oil well hook-up and flowline installation in desert field.",
+      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageHint": "well hook-up oil field"
+    },
+    {
+      "id": "road-construction",
+      "description": "Road construction and re-sheeting work in desert terrain.",
+      "imageUrl": "https://images.unsplash.com/photo-1532472601364-dd1d9bde108b?w=1080&q=80",
+      "imageHint": "road construction desert"
+    },
+    {
+      "id": "grader-road",
+      "description": "Grader working on road construction and maintenance.",
+      "imageUrl": "https://images.unsplash.com/photo-1623036484438-002339898926?w=1080&q=80",
+      "imageHint": "grader road construction"
+    },
+    {
+      "id": "road-crossing",
+      "description": "Road crossing with pipeline integration in oil field.",
+      "imageUrl": "https://images.unsplash.com/photo-1594398982255-fd4ea34a61f?w=1080&q=80",
+      "imageHint": "road crossing pipeline"
+    },
+    {
+      "id": "pipeline-trenching",
+      "description": "Pipeline trenching and installation work in desert.",
+      "imageUrl": "https://images.unsplash.com/photo-1594398982255-fd4ea34a61f?w=1080&q=80",
+      "imageHint": "pipeline trenching desert"
+    },
+    {
+      "id": "cable-trenching",
+      "description": "Cable trenching and laying work for telecommunications.",
+      "imageUrl": "https://images.unsplash.com/photo-1515630771457-09367d0ae038?w=1080&q=80",
+      "imageHint": "cable trenching telecom"
+    },
+    {
+      "id": "fiber-optic",
+      "description": "Fiber optic cable installation and expansion work.",
+      "imageUrl": "https://images.unsplash.com/photo-1515630771457-09367d0ae038?w=1080&q=80",
+      "imageHint": "fiber optic cable installation"
+    },
+    {
+      "id": "security-fencing",
+      "description": "Security fencing and perimeter installation for industrial sites.",
+      "imageUrl": "https://images.unsplash.com/photo-1509390288171-ce2088f7d08e?w=1080&q=80",
+      "imageHint": "security fencing industrial"
+    },
+    {
+      "id": "oil-field-development",
+      "description": "Oil field development with multiple well sites and facilities.",
+      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageHint": "oil field development wells"
+    },
+    {
+      "id": "civil-electrical",
+      "description": "Civil and electrical construction work at industrial site.",
+      "imageUrl": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1080&q=80",
+      "imageHint": "civil electrical construction"
+    },
+    {
+      "id": "pipeline-excavation",
+      "description": "Manual excavation work for pipeline installation.",
+      "imageUrl": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1080&q=80",
+      "imageHint": "pipeline excavation manual"
+    },
+    {
+      "id": "field-development",
+      "description": "Oil and gas field development with flowlines and facilities.",
+      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageHint": "field development flowlines"
+    },
+    {
+      "id": "mechanical-piping",
+      "description": "Mechanical piping and equipment installation in industrial facility.",
+      "imageUrl": "https://images.unsplash.com/photo-1623036484438-002339898926?w=1080&q=80",
+      "imageHint": "mechanical piping installation"
+    },
+    {
+      "id": "gas-facility",
+      "description": "Gas processing facility with pipelines and equipment.",
+      "imageUrl": "https://images.unsplash.com/photo-1684346605835-69888f742522?w=1080&q=80",
+      "imageHint": "gas facility processing"
+    },
+    {
+      "id": "pipeline-installation",
+      "description": "Pipeline installation and construction in desert environment.",
+      "imageUrl": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1080&q=80",
+      "imageHint": "pipeline installation desert"
+    },
+    {
+      "id": "oil-field-road",
+      "description": "Road construction in oil field with pipelines and facilities in background.",
+      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageHint": "oil field road construction"
+    },
+    {
+      "id": "oil-well-site",
+      "description": "Oil well site with drilling rig and wellhead facilities.",
+      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageHint": "oil well site drilling"
+    },
+    {
+      "id": "oil-gas-facility",
+      "description": "Oil and gas processing facility with pipelines and equipment.",
+      "imageUrl": "https://images.unsplash.com/photo-1684346605835-69888f742522?w=1080&q=80",
+      "imageHint": "oil gas processing facility"
     }
   ]
 }

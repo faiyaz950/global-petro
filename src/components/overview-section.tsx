@@ -28,7 +28,8 @@ export default function OverviewSection() {
 
   const industrialEngineeringImage = PlaceHolderImages.find(p => p.id === 'policy-quality');
   const teamOfEngineersImage = PlaceHolderImages.find(p => p.id === 'service-engineering');
-  const constructionSiteImage = PlaceHolderImages.find(p => p.id === 'service-construction');
+  // Use work-related image for the main construction site image
+  const constructionSiteImage = PlaceHolderImages.find(p => p.id === 'well-hookup') || PlaceHolderImages.find(p => p.id === 'project-1') || PlaceHolderImages.find(p => p.id === 'pipeline-installation') || PlaceHolderImages.find(p => p.id === 'service-construction');
 
 
   useEffect(() => {
@@ -448,10 +449,12 @@ export default function OverviewSection() {
                   </div>
                    {/* Bottom CTA */}
                   <div className="mt-10 text-center animate-slideUp stagger-6">
-                    <button className="inline-flex items-center gap-3 px-8 py-4 text-white font-bold rounded-full shadow-2xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-[#932445] to-[#d63865] group">
-                      <span>More About Us</span>
-                      <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    <Link href="/about">
+                      <button className="inline-flex items-center gap-3 px-8 py-4 text-white font-bold rounded-full shadow-2xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-[#932445] to-[#d63865] group">
+                        <span>More About Us</span>
+                        <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               )}

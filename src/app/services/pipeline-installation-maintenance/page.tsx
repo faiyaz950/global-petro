@@ -1,11 +1,51 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Waypoints, CheckCircle, Shield, Award, Users, Wrench, Zap } from 'lucide-react';
 import GlobalNav from '@/components/global-nav';
 import Link from 'next/link';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+
+// Service-related images and corresponding texts
+const heroSlides = [
+  {
+    imageId: 'pipeline-installation',
+    text: 'Complete pipeline solutions including hydro-testing, excavation, and specialized piping like HDPE, GRE, and carbon steel with leak detection and integrity management systems.'
+  },
+  {
+    imageId: 'project-5',
+    text: 'HDPE, GRE, and Carbon Steel Pipeline Installation Services'
+  },
+  {
+    imageId: 'pipeline-trenching',
+    text: 'Pipeline Excavation, Trenching, and Installation Expertise'
+  },
+  {
+    imageId: 'pipeline-excavation',
+    text: 'Hydro-testing, Leak Detection, and Integrity Management'
+  },
+  {
+    imageId: 'road-crossing',
+    text: 'Specialized Piping Systems and Pipeline Maintenance Services'
+  },
+  {
+    imageId: 'field-development',
+    text: 'Complete Pipeline Solutions from Installation to Maintenance'
+  }
+];
 
 export default function PipelineInstallationMaintenancePage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentSlideData = heroSlides[currentSlide];
   return (
     <>
       <style jsx>{`
@@ -13,6 +53,11 @@ export default function PipelineInstallationMaintenancePage() {
 
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideFade {
+          from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
 
@@ -78,8 +123,31 @@ export default function PipelineInstallationMaintenancePage() {
         <main className="flex-1">
           {/* Hero Section */}
           <section className="relative overflow-hidden bg-black py-32 pt-56 min-h-[80vh] flex items-center">
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
+            {/* Background Image Slider */}
+            <div className="absolute inset-0">
+              {heroSlides.map((slide, index) => {
+                const slideImage = PlaceHolderImages.find(img => img.id === slide.imageId) || PlaceHolderImages.find(img => img.id === 'pipeline-installation');
+                return (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${
+                      index === currentSlide ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <img
+                      src={slideImage?.imageUrl || 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80'}
+                      alt={slideImage?.description || 'Pipeline Installation & Maintenance'}
+                      className="w-full h-full object-cover"
+                      style={{ filter: 'brightness(0.7)' }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            
+            {/* Gradient Overlays - Minimal opacity */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/25"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/15 via-transparent to-black/15"></div>
             
             <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(147, 36, 69, 0.15)' }}></div>
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(147, 36, 69, 0.1)', animationDelay: '1s' }}></div>
@@ -107,9 +175,33 @@ export default function PipelineInstallationMaintenancePage() {
 
               <div className="w-32 h-1 mb-8 mx-auto rounded-full animate-fadeIn" style={{ background: 'linear-gradient(90deg, transparent, #932445, #fcd34d, #932445, transparent)' }}></div>
 
-              <p className="text-lg md:text-xl text-white/70 text-center max-w-2xl mx-auto mb-10 font-light tracking-wide animate-fadeIn" style={{ animationDelay: '0.2s', fontFamily: "'Playfair Display', serif" }}>
-                Complete pipeline solutions including hydro-testing, excavation, and specialized piping like HDPE, GRE, and carbon steel with leak detection and integrity management systems.
+              {/* Subtitle with dynamic text */}
+              <p 
+                key={currentSlide}
+                className="text-lg md:text-xl text-white/90 text-center max-w-2xl mx-auto mb-10 font-light tracking-wide" 
+                style={{ 
+                  fontFamily: "'Playfair Display', serif",
+                  animation: 'slideFade 0.8s ease-out'
+                }}
+              >
+                {currentSlideData.text}
               </p>
+              
+              {/* Slider Indicators */}
+              <div className="flex justify-center gap-2 mt-6">
+                {heroSlides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      index === currentSlide 
+                        ? 'w-8 bg-white' 
+                        : 'w-2 bg-white/40 hover:bg-white/60'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </section>
 
