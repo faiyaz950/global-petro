@@ -177,19 +177,19 @@
     {
       "id": "fiber-optic",
       "description": "Fiber optic cable installation and expansion work.",
-      "imageUrl": "https://images.unsplash.com/photo-1515630771457-09367d0ae038?w=1080&q=80",
+      "imageUrl": "/nimr.png",
       "imageHint": "fiber optic cable installation"
     },
     {
       "id": "security-fencing",
       "description": "Security fencing and perimeter installation for industrial sites.",
-      "imageUrl": "https://images.unsplash.com/photo-1509390288171-ce2088f7d08e?w=1080&q=80",
+      "imageUrl": "/additionn.png",
       "imageHint": "security fencing industrial"
     },
     {
       "id": "oil-field-development",
       "description": "Oil field development with multiple well sites and facilities.",
-      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageUrl": "/mabrouk.png",
       "imageHint": "oil field development wells"
     },
     {
@@ -201,13 +201,13 @@
     {
       "id": "pipeline-excavation",
       "description": "Manual excavation work for pipeline installation.",
-      "imageUrl": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1080&q=80",
+      "imageUrl": "/manexa.png",
       "imageHint": "pipeline excavation manual"
     },
     {
       "id": "field-development",
       "description": "Oil and gas field development with flowlines and facilities.",
-      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageUrl": "/raba.png",
       "imageHint": "field development flowlines"
     },
     {
@@ -219,13 +219,13 @@
     {
       "id": "gas-facility",
       "description": "Gas processing facility with pipelines and equipment.",
-      "imageUrl": "https://images.unsplash.com/photo-1684346605835-69888f742522?w=1080&q=80",
+      "imageUrl": "/sagas.png",
       "imageHint": "gas facility processing"
     },
     {
       "id": "pipeline-installation",
       "description": "Pipeline installation and construction in desert environment.",
-      "imageUrl": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1080&q=80",
+      "imageUrl": "/yibal.png",
       "imageHint": "pipeline installation desert"
     },
     {
@@ -237,13 +237,13 @@
     {
       "id": "oil-well-site",
       "description": "Oil well site with drilling rig and wellhead facilities.",
-      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageUrl": "/cielec.png",
       "imageHint": "oil well site drilling"
     },
     {
       "id": "oil-gas-facility",
       "description": "Oil and gas processing facility with pipelines and equipment.",
-      "imageUrl": "https://images.unsplash.com/photo-1684346605835-69888f742522?w=1080&q=80",
+      "imageUrl": "/kauther.png",
       "imageHint": "oil gas processing facility"
     }
   ]
