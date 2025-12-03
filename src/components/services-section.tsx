@@ -1,52 +1,67 @@
 'use client';
 
+import { useState, useRef } from 'react';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight } from 'lucide-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 const CORE_SERVICES = [
   {
-    title: 'Engineering Solutions',
+    title: 'EPC & Project Management',
     description:
-      'Comprehensive engineering services for complex industrial projects',
-    imageId: 'service-engineering',
+      'End-to-end engineering, procurement, and construction services with comprehensive project management',
+    imageUrl: '/epcandpm.png',
+    href: '/services/epc-project-management',
   },
   {
-    title: 'Power Systems',
-    description: 'Advanced power generation and distribution solutions',
-    imageId: 'service-power',
+    title: 'Oil & Gas Field Services',
+    description: 'Specialized field services for oil and gas operations and facilities',
+    imageUrl: '/oilandgass.png',
+    href: '/services/oil-gas-field-services',
+  },
+  {
+    title: 'Civil & Mechanical Construction',
+    description: 'Expert construction services for civil and mechanical infrastructure projects',
+    imageUrl: '/civilandmech.png',
+    href: '/services/civil-mechanical-construction',
   },
   {
     title: 'Infrastructure Development',
-    description: 'Building robust infrastructure for modern industries',
-    imageId: 'service-infrastructure',
+    description: 'Building robust infrastructure for modern industries and communities',
+    imageUrl: '/infrast.png',
+    href: '/services/infrastructure-development',
   },
   {
-    title: 'Construction Services',
-    description: 'Expert construction management and execution',
-    imageId: 'service-construction',
+    title: 'Manpower Supply & Equipment Rental',
+    description: 'Skilled workforce and equipment rental solutions for your project needs',
+    imageUrl: '/manpower.png',
+    href: '/services/manpower-supply-equipment-rental',
   },
   {
-    title: 'Maintenance & Support',
-    description: 'Reliable maintenance services for optimal performance',
-    imageId: 'service-maintenance',
-  },
-  {
-    title: 'Industrial Automation',
-    description: 'Smart automation solutions for enhanced efficiency',
-    imageId: 'service-automation',
+    title: 'QHSE & Quality Assurance',
+    description: 'Quality, Health, Safety, and Environment management and assurance services',
+    imageUrl: '/qhse.png',
+    href: '/services/qhse-quality-assurance',
   },
 ];
 
 export default function ServicesSection() {
+  const [api, setApi] = useState<CarouselApi>();
+  const autoplay = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
+
   return (
     <>
       <style jsx>{`
@@ -109,45 +124,56 @@ export default function ServicesSection() {
               align: 'start',
               loop: true,
             }}
+            plugins={[autoplay.current]}
+            setApi={setApi}
             className="w-full"
           >
             <CarouselContent className="-ml-4">
               {CORE_SERVICES.map((service, index) => {
+                // Use direct imageUrl if available, otherwise fall back to placeholder
+                const imageUrl = service.imageUrl || (() => {
+                  if ('imageId' in service && service.imageId) {
                 const image = PlaceHolderImages.find(
                   (img) => img.id === service.imageId
                 );
+                    return image?.imageUrl;
+                  }
+                  return undefined;
+                })();
+                
                 return (
                   <CarouselItem
                     key={index}
                     className="pl-4 md:basis-1/2 lg:basis-1/4"
                   >
                     <div className="p-1">
-                      <Card className="group relative h-[440px] overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-[#932445]/20">
-                        {image && (
-                          <Image
-                            src={image.imageUrl}
-                            alt={service.title}
-                            data-ai-hint={image.imageHint}
-                            fill
-                            className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                          />
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-300 group-hover:from-black/90"></div>
-                        <CardContent className="relative h-full flex flex-col justify-end p-6 text-white">
-                          <h3
-                            className="text-2xl font-bold mb-2 transition-transform duration-300 group-hover:-translate-y-2"
-                            style={{ fontFamily: 'Playfair Display, serif' }}
-                          >
-                            {service.title}
-                          </h3>
-                          <p className="text-sm opacity-80 mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                            {service.description}
-                          </p>
-                          <button className="flex items-center gap-2 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                            Learn More <ArrowRight className="w-4 h-4" />
-                          </button>
-                        </CardContent>
-                      </Card>
+                      <Link href={service.href}>
+                        <Card className="group relative h-[440px] overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:shadow-[#932445]/20 cursor-pointer">
+                          {imageUrl && (
+                            <Image
+                              src={imageUrl}
+                              alt={service.title}
+                              fill
+                              className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                            />
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-300 group-hover:from-black/90"></div>
+                          <CardContent className="relative h-full flex flex-col justify-end p-6 text-white">
+                            <h3
+                              className="text-2xl font-bold mb-2 transition-transform duration-300 group-hover:-translate-y-2"
+                              style={{ fontFamily: 'Playfair Display, serif' }}
+                            >
+                              {service.title}
+                            </h3>
+                            <p className="text-sm opacity-80 mb-4 transition-transform duration-300 group-hover:-translate-y-2">
+                              {service.description}
+                            </p>
+                            <div className="flex items-center gap-2 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                              Learn More <ArrowRight className="w-4 h-4" />
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </Link>
                     </div>
                   </CarouselItem>
                 );
