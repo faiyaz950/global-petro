@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Sparkles, TrendingUp, Award, Target, Building, Users, CheckCircle2 } from 'lucide-react';
+import Image from 'next/image';
 
 const TIMELINE_DATA = [
   {
@@ -9,7 +10,7 @@ const TIMELINE_DATA = [
     title: 'Foundation & Vision',
     description: "Global Petrotech SPC was established with a clear vision: to become a cornerstone of Oman's industrial and infrastructure growth. Our journey began with a small, dedicated team and a commitment to delivering exceptional quality and reliability in every project we undertook.",
     icon: Sparkles,
-    image: 'https://images.unsplash.com/photo-1581094371996-59c6e5a6b0b2?w=800&q=80',
+    image: '/foundationandvision.png',
     highlights: ['Company Founded', 'Initial Team Formation', 'Vision Established']
   },
   {
@@ -17,7 +18,7 @@ const TIMELINE_DATA = [
     title: 'First Major Project',
     description: 'We secured our first major contract, the Well Hook-Up Work in the Karim West Field for MEDCO. This project was a significant milestone, proving our capabilities in the demanding Oil & Gas sector and solidifying our reputation as a dependable contractor in the region.',
     icon: Building,
-    image: 'https://images.unsplash.com/photo-1581092448348-5221b6a941b2?w=800&q=80',
+    image: '/firstmajorproject.png',
     highlights: ['Karim West Field Contract', 'MEDCO Partnership', 'Industry Entry']
   },
   {
@@ -41,7 +42,7 @@ const TIMELINE_DATA = [
     title: 'Industry Recognition',
     description: 'Our unwavering commitment to excellence was recognized with several prestigious industry accolades for our outstanding performance, exceptional safety record, and dedication to sustainable and innovative construction solutions in major national development projects.',
     icon: Award,
-    image: 'https://images.unsplash.com/photo-1578589254944-ef07b9f5b9d4?w=800&q=80',
+    image: '/industryrecognition.png',
     highlights: ['Industry Awards', 'Safety Excellence', 'Sustainability Recognition']
   },
   {
@@ -49,7 +50,7 @@ const TIMELINE_DATA = [
     title: 'Leading Complex Projects',
     description: 'Today, we stand at the forefront of managing technically demanding, large-scale projects across the Oil & Gas, Power, and Infrastructure sectors. Our continuous evolution is driven by a relentless focus on client satisfaction, quality excellence, and pushing the boundaries of engineering innovation.',
     icon: Target,
-    image: 'https://images.unsplash.com/photo-1621998902048-3c63a5a4c6c7?w=800&q=80',
+    image: '/LeadingComplexProjects.png',
     highlights: ['Large-Scale Projects', 'Technical Excellence', 'Industry Leadership']
   },
 ];
@@ -197,10 +198,11 @@ export default function TimelineSection() {
                       <div className="relative h-full bg-white border border-gray-200/50 rounded-3xl overflow-hidden group-hover:border-[#932445]/60 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-[#932445]/20">
                         {/* Image Container */}
                         <div className="relative overflow-hidden h-64">
-                          <img
+                          <Image
                             src={item.image}
                             alt={item.title}
-                            className={`w-full h-full object-cover transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
+                            fill
+                            className={`object-cover transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
                           />
                           <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-500 ${isHovered ? 'opacity-80' : 'opacity-60'}`}></div>
                           
