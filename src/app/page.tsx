@@ -8,6 +8,7 @@ import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
 import PoliciesSection from '@/components/policies-section';
 import ClientsSection from '@/components/clients-section';
+import AchievementsSection from '@/components/achievements-section';
 import VisionMissionSection from '@/components/vision-mission-section';
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <ServicesSection />
         <PortfolioSection />
         <ClientsSection />
+        <AchievementsSection />
         <VisionMissionSection />
         <PoliciesSection />
         <ContactSection />
