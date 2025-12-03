@@ -141,19 +141,19 @@
     {
       "id": "well-hookup",
       "description": "Oil well hook-up and flowline installation in desert field.",
-      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageUrl": "/wellhook.png",
       "imageHint": "well hook-up oil field"
     },
     {
       "id": "road-construction",
       "description": "Road construction and re-sheeting work in desert terrain.",
-      "imageUrl": "https://images.unsplash.com/photo-1532472601364-dd1d9bde108b?w=1080&q=80",
+      "imageUrl": "/roadre.png",
       "imageHint": "road construction desert"
     },
     {
       "id": "grader-road",
       "description": "Grader working on road construction and maintenance.",
-      "imageUrl": "https://images.unsplash.com/photo-1623036484438-002339898926?w=1080&q=80",
+      "imageUrl": "/constga.png",
       "imageHint": "grader road construction"
     },
     {
@@ -165,13 +165,13 @@
     {
       "id": "pipeline-trenching",
       "description": "Pipeline trenching and installation work in desert.",
-      "imageUrl": "https://images.unsplash.com/photo-1594398982255-fd4ea34a61f?w=1080&q=80",
+      "imageUrl": "/pip.png",
       "imageHint": "pipeline trenching desert"
     },
     {
       "id": "cable-trenching",
       "description": "Cable trenching and laying work for telecommunications.",
-      "imageUrl": "https://images.unsplash.com/photo-1515630771457-09367d0ae038?w=1080&q=80",
+      "imageUrl": "/cable.png",
       "imageHint": "cable trenching telecom"
     },
     {
@@ -231,7 +231,7 @@
     {
       "id": "oil-field-road",
       "description": "Road construction in oil field with pipelines and facilities in background.",
-      "imageUrl": "https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1080&q=80",
+      "imageUrl": "/grader.png",
       "imageHint": "oil field road construction"
     },
     {
