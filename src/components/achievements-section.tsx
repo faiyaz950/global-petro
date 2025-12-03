@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { Award, Trophy, Star, Sparkles } from 'lucide-react';
+import { Award, Trophy, Star, Sparkles, ZoomIn, Shield, CheckCircle2 } from 'lucide-react';
 
 const CERTIFICATES = [
   { id: 1, image: '/certiones.png', alt: 'Certificate 1' },
@@ -49,7 +49,7 @@ export default function AchievementsSection() {
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
@@ -60,167 +60,260 @@ export default function AchievementsSection() {
         @keyframes scaleIn {
           from {
             opacity: 0;
-            transform: scale(0.8);
+            transform: scale(0.85) rotateY(-5deg);
           }
           to {
             opacity: 1;
-            transform: scale(1);
+            transform: scale(1) rotateY(0deg);
           }
         }
 
         @keyframes float {
           0%, 100% {
-            transform: translateY(0px);
+            transform: translateY(0px) rotate(0deg);
           }
           50% {
-            transform: translateY(-10px);
+            transform: translateY(-15px) rotate(5deg);
           }
         }
 
         @keyframes shimmer {
           0% {
-            background-position: -1000px 0;
+            background-position: -2000px 0;
           }
           100% {
-            background-position: 1000px 0;
+            background-position: 2000px 0;
+          }
+        }
+
+        @keyframes glow {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(147, 36, 69, 0.2), 0 0 40px rgba(214, 56, 101, 0.1);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(147, 36, 69, 0.4), 0 0 60px rgba(214, 56, 101, 0.2);
+          }
+        }
+
+        @keyframes gradient-shift {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
           }
         }
 
         .animate-fade-in-up {
-          animation: fadeInUp 0.8s ease-out forwards;
+          animation: fadeInUp 1s ease-out forwards;
         }
 
         .animate-scale-in {
-          animation: scaleIn 0.6s ease-out forwards;
+          animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
         .animate-float {
-          animation: float 6s ease-in-out infinite;
+          animation: float 8s ease-in-out infinite;
         }
 
         .certificate-card {
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          perspective: 1000px;
         }
 
         .certificate-card:hover {
-          transform: translateY(-12px) scale(1.05);
-          box-shadow: 0 20px 40px rgba(147, 36, 69, 0.3);
+          transform: translateY(-20px) scale(1.08) rotateY(2deg);
+          box-shadow: 0 30px 60px rgba(147, 36, 69, 0.4), 
+                      0 0 40px rgba(214, 56, 101, 0.2),
+                      inset 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .certificate-card::before {
+          content: '';
+          position: absolute;
+          inset: -2px;
+          border-radius: inherit;
+          padding: 2px;
+          background: linear-gradient(135deg, #932445, #d63865, #f59e0b, #d63865, #932445);
+          background-size: 300% 300%;
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          opacity: 0;
+          transition: opacity 0.5s;
+          animation: gradient-shift 3s ease infinite;
+        }
+
+        .certificate-card:hover::before {
+          opacity: 1;
         }
 
         .shimmer-effect {
           background: linear-gradient(
             90deg,
             rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0.4) 50%,
             rgba(255, 255, 255, 0) 100%
           );
-          background-size: 1000px 100%;
-          animation: shimmer 3s infinite;
+          background-size: 2000px 100%;
+          animation: shimmer 4s infinite;
         }
 
         .glass-effect {
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .premium-glow {
+          animation: glow 3s ease-in-out infinite;
+        }
+
+        .animate-gradient {
+          background-size: 200% auto;
+          animation: gradient-shift 8s ease infinite;
         }
       `}</style>
 
       <section
         ref={sectionRef}
         id="achievements"
-        className="relative py-24 px-4 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50"
+        className="relative py-32 px-4 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-rose-50"
         style={{ fontFamily: 'Inter, sans-serif' }}
       >
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(147,36,69,0.03)_1.5px,transparent_1.5px),linear-gradient(90deg,rgba(147,36,69,0.03)_1.5px,transparent_1.5px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
+        {/* Premium Background Effects */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(147,36,69,0.04)_2px,transparent_2px),linear-gradient(90deg,rgba(147,36,69,0.04)_2px,transparent_2px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
         
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(147, 36, 69, 0.08)' }}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(214, 56, 101, 0.06)', animationDelay: '1s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(147, 36, 69, 0.12)' }}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(214, 56, 101, 0.1)', animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(245, 158, 11, 0.08)', animationDelay: '0.5s' }}></div>
+
+        {/* Decorative Orbs */}
+        <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-[#932445]/20 to-[#d63865]/20 blur-2xl animate-float"></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 rounded-full bg-gradient-to-br from-[#d63865]/15 to-[#f59e0b]/15 blur-2xl animate-float" style={{ animationDelay: '1s' }}></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Header */}
-          <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-lg shadow-[#932445]/10 border border-[#932445]/20 mb-6">
-              <div className="relative flex h-2 w-2">
+          {/* Premium Header */}
+          <div className={`text-center mb-20 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/90 backdrop-blur-xl shadow-2xl shadow-[#932445]/10 border-2 border-[#932445]/20 mb-8">
+              <div className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#932445] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#932445]"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-br from-[#932445] to-[#d63865]"></span>
               </div>
-              <span className="text-[#932445] font-semibold text-xs tracking-wider">
-                RECOGNITION & EXCELLENCE
+              <span className="text-[#932445] font-bold text-sm tracking-widest uppercase">
+                Recognition & Excellence
               </span>
+              <div className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#932445] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-br from-[#932445] to-[#d63865]"></span>
+              </div>
             </div>
             
             <h2
-              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+              className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-8 leading-tight"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
               Achievements &{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#932445] via-[#d63865] to-[#932445]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#932445] via-[#d63865] via-[#f59e0b] to-[#d63865] bg-[length:200%_auto] animate-gradient">
                 Certificates
               </span>
             </h2>
 
             <p
-              className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              Our commitment to excellence is recognized through industry certifications and achievements that validate our expertise and quality standards.
+              Our unwavering commitment to excellence is recognized through prestigious industry certifications and achievements that validate our expertise, quality standards, and dedication to delivering world-class solutions.
             </p>
           </div>
 
-          {/* Certificates Grid */}
-          <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          {/* Premium Certificates Grid - Larger Size */}
+          <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             {CERTIFICATES.map((certificate, index) => (
               <div
                 key={certificate.id}
-                className={`certificate-card group relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl border border-gray-100 ${
+                className={`certificate-card group relative rounded-3xl overflow-hidden bg-white shadow-2xl hover:shadow-[#932445]/30 border-2 border-gray-200/50 premium-glow ${
                   isVisible ? 'animate-scale-in' : 'opacity-0'
                 }`}
                 style={{ 
-                  animationDelay: `${index * 0.1}s`,
+                  animationDelay: `${index * 0.12}s`,
                   animationFillMode: 'forwards'
                 }}
               >
+                {/* Premium Border Gradient */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#932445]/0 via-[#d63865]/0 to-[#f59e0b]/0 group-hover:from-[#932445]/10 group-hover:via-[#d63865]/10 group-hover:to-[#f59e0b]/10 transition-all duration-700 -z-10"></div>
+
                 {/* Shimmer Effect on Hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shimmer-effect pointer-events-none z-10"></div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 shimmer-effect pointer-events-none z-20 rounded-3xl"></div>
                 
-                {/* Image Container */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-50">
+                {/* Image Container - Larger */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
                   <Image
                     src={certificate.image}
                     alt={certificate.alt}
                     fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+                    className="object-contain p-6 md:p-8 transition-all duration-700 group-hover:scale-115"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
                   
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-transparent group-hover:from-black/5 transition-all duration-300"></div>
+                  {/* Premium Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-transparent group-hover:from-black/10 transition-all duration-500"></div>
+                  
+                  {/* Shine Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </div>
 
-                {/* Decorative Elements */}
-                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="p-2 rounded-full bg-[#932445]/10 backdrop-blur-sm">
-                    <Award className="w-4 h-4 text-[#932445]" />
+                {/* Premium Decorative Elements */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 z-30">
+                  <div className="p-3 rounded-full bg-gradient-to-br from-[#932445] to-[#d63865] shadow-lg shadow-[#932445]/30 backdrop-blur-sm">
+                    <Award className="w-5 h-5 text-white" />
                   </div>
                 </div>
 
-                {/* Corner Accent */}
-                <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-[#932445]/20 to-transparent rounded-br-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Premium Corner Accents */}
+                <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-[#932445]/30 via-[#d63865]/20 to-transparent rounded-br-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#f59e0b]/20 via-[#d63865]/15 to-transparent rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Zoom Icon on Hover */}
+                <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-30">
+                  <div className="p-2 rounded-lg bg-white/90 backdrop-blur-sm shadow-lg">
+                    <ZoomIn className="w-4 h-4 text-[#932445]" />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Bottom Decorative Icons */}
-          <div className={`mt-16 flex justify-center items-center gap-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.8s' }}>
-            <div className="p-4 rounded-full bg-gradient-to-br from-[#932445]/10 to-[#d63865]/10 animate-float">
-              <Trophy className="w-6 h-6 text-[#932445]" />
+          {/* Premium Bottom Stats/Decorative Section */}
+          <div className={`mt-24 flex flex-col md:flex-row justify-center items-center gap-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '1s' }}>
+            <div className="flex items-center gap-4 p-6 rounded-2xl bg-white/80 backdrop-blur-xl shadow-xl border border-[#932445]/10 animate-float">
+              <div className="p-4 rounded-xl bg-gradient-to-br from-[#932445] to-[#d63865] shadow-lg">
+                <Trophy className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <div className="text-2xl font-black text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>8+</div>
+                <div className="text-sm text-gray-600 font-medium">Certifications</div>
+              </div>
             </div>
-            <div className="p-4 rounded-full bg-gradient-to-br from-[#932445]/10 to-[#d63865]/10 animate-float" style={{ animationDelay: '0.2s' }}>
-              <Star className="w-6 h-6 text-[#932445]" />
+
+            <div className="flex items-center gap-4 p-6 rounded-2xl bg-white/80 backdrop-blur-xl shadow-xl border border-[#932445]/10 animate-float" style={{ animationDelay: '0.3s' }}>
+              <div className="p-4 rounded-xl bg-gradient-to-br from-[#d63865] to-[#f59e0b] shadow-lg">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <div className="text-2xl font-black text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>100%</div>
+                <div className="text-sm text-gray-600 font-medium">Quality Assured</div>
+              </div>
             </div>
-            <div className="p-4 rounded-full bg-gradient-to-br from-[#932445]/10 to-[#d63865]/10 animate-float" style={{ animationDelay: '0.4s' }}>
-              <Sparkles className="w-6 h-6 text-[#932445]" />
+
+            <div className="flex items-center gap-4 p-6 rounded-2xl bg-white/80 backdrop-blur-xl shadow-xl border border-[#932445]/10 animate-float" style={{ animationDelay: '0.6s' }}>
+              <div className="p-4 rounded-xl bg-gradient-to-br from-[#f59e0b] to-[#932445] shadow-lg">
+                <CheckCircle2 className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <div className="text-2xl font-black text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>ISO</div>
+                <div className="text-sm text-gray-600 font-medium">Certified</div>
+              </div>
             </div>
           </div>
         </div>
