@@ -14,7 +14,7 @@ const POLICIES_DATA = {
       'Active participation and accountability at all levels',
       'Proactive risk management and hazard identification'
     ],
-    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80',
+    image: '/healtac.png',
     icon: ShieldCheck,
     color: 'from-[#932445] to-[#d63865]'
   },
@@ -28,7 +28,7 @@ const POLICIES_DATA = {
       'Foster a culture of continuous improvement',
       'Leverage best practices and innovative solutions'
     ],
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+    image: '/quality.png',
     icon: HeartHandshake,
     color: 'from-[#d63865] to-[#932445]'
   }
