@@ -30,17 +30,9 @@ import {
   Menu,
   X,
 } from 'lucide-react';
-import { OrgChartSection } from '@/components/org-chart-section';
 import GlobalNav from '@/components/global-nav';
+import Footer from '@/components/footer';
 import Link from 'next/link';
-
-const Footer = () => (
-  <footer className="bg-gray-900 text-white py-12">
-    <div className="container mx-auto px-4 text-center">
-      <p className="text-gray-400">© 2025 Global Petrotech SPC. All rights reserved.</p>
-    </div>
-  </footer>
-);
 
 const AnimatedCounter = ({ end, duration = 2000, suffix = '' }: { end: number; duration?: number; suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -590,15 +582,15 @@ export default function AboutPage() {
                     <div className="space-y-6">
                       <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
                         <img
-                          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80"
-                          alt="Engineering team"
+                          src="/firstmajorproject.png"
+                          alt="First Major Project"
                           className="w-full h-64 object-cover"
                         />
                       </div>
                       <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
                         <img
-                          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=400&q=80"
-                          alt="Industrial site"
+                          src="/wellhook.png"
+                          alt="Well Hook-up Works"
                           className="w-full h-48 object-cover"
                         />
                       </div>
@@ -606,15 +598,15 @@ export default function AboutPage() {
                     <div className="space-y-6 pt-12">
                       <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
                         <img
-                          src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&q=80"
-                          alt="Construction work"
+                          src="/LeadingComplexProjects.png"
+                          alt="Leading Complex Projects"
                           className="w-full h-48 object-cover"
                         />
                       </div>
                       <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
                         <img
-                          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&q=80"
-                          alt="Oil and gas facility"
+                          src="/yibal.png"
+                          alt="Pipeline Installation Project"
                           className="w-full h-64 object-cover"
                         />
                       </div>
@@ -713,7 +705,7 @@ export default function AboutPage() {
               <div className="grid gap-12 lg:grid-cols-2">
                 <div className="relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-all duration-500 hover:scale-105 animate-fadeInUp">
                   <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+                    src="/foundationandvision.png"
                     alt="Vision"
                     className="w-full h-full object-cover"
                   />
@@ -729,7 +721,7 @@ export default function AboutPage() {
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-all duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
                   <img
-                    src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80"
+                    src="/firstmajorproject.png"
                     alt="Mission"
                     className="w-full h-full object-cover"
                   />
@@ -1093,8 +1085,6 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
-
-          <OrgChartSection />
 
           {/* Clients & Projects */}
           <section id="projects" className="py-24 bg-white">
