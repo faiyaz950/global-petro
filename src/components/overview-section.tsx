@@ -27,9 +27,9 @@ export default function OverviewSection() {
   const sectionRef = useRef(null);
 
   // Use project images from public folder
-  const industrialEngineeringImage = { imageUrl: '/firstmajorproject.png', imageHint: 'First Major Project', description: 'First Major Project' };
-  const teamOfEngineersImage = { imageUrl: '/LeadingComplexProjects.png', imageHint: 'Leading Complex Projects', description: 'Leading Complex Projects' };
-  const constructionSiteImage = { imageUrl: '/wellhook.png', imageHint: 'Well Hook-up Works', description: 'Well Hook-up Works' };
+  const industrialEngineeringImage = { imageUrl: '/tenglob.png', imageHint: 'Industrial Solutions', description: 'Industrial Solutions' };
+  const teamOfEngineersImage = { imageUrl: '/elevenglob.png', imageHint: 'Team Excellence', description: 'Team Excellence' };
+  const constructionSiteImage = { imageUrl: '/twelveglob.png', imageHint: 'Project Excellence', description: 'Project Excellence' };
 
 
   useEffect(() => {

@@ -177,19 +177,19 @@
     {
       "id": "fiber-optic",
       "description": "Fiber optic cable installation and expansion work.",
-      "imageUrl": "/nimr.png",
+      "imageUrl": "/oneglobe.png",
       "imageHint": "fiber optic cable installation"
     },
     {
       "id": "security-fencing",
       "description": "Security fencing and perimeter installation for industrial sites.",
-      "imageUrl": "/additionn.png",
+      "imageUrl": "/twoglobe.png",
       "imageHint": "security fencing industrial"
     },
     {
       "id": "oil-field-development",
       "description": "Oil field development with multiple well sites and facilities.",
-      "imageUrl": "/mabrouk.png",
+      "imageUrl": "/threeglob.png",
       "imageHint": "oil field development wells"
     },
     {
@@ -201,13 +201,13 @@
     {
       "id": "pipeline-excavation",
       "description": "Manual excavation work for pipeline installation.",
-      "imageUrl": "/manexa.png",
+      "imageUrl": "/fiveglob.png",
       "imageHint": "pipeline excavation manual"
     },
     {
       "id": "field-development",
       "description": "Oil and gas field development with flowlines and facilities.",
-      "imageUrl": "/raba.png",
+      "imageUrl": "/sixglob.png",
       "imageHint": "field development flowlines"
     },
     {
@@ -219,13 +219,13 @@
     {
       "id": "gas-facility",
       "description": "Gas processing facility with pipelines and equipment.",
-      "imageUrl": "/sagas.png",
+      "imageUrl": "/eightglob.png",
       "imageHint": "gas facility processing"
     },
     {
       "id": "pipeline-installation",
       "description": "Pipeline installation and construction in desert environment.",
-      "imageUrl": "/yibal.png",
+      "imageUrl": "/nineglob.png",
       "imageHint": "pipeline installation desert"
     },
     {
@@ -237,13 +237,13 @@
     {
       "id": "oil-well-site",
       "description": "Oil well site with drilling rig and wellhead facilities.",
-      "imageUrl": "/cielec.png",
+      "imageUrl": "/fourglob.png",
       "imageHint": "oil well site drilling"
     },
     {
       "id": "oil-gas-facility",
       "description": "Oil and gas processing facility with pipelines and equipment.",
-      "imageUrl": "/kauther.png",
+      "imageUrl": "/sevenglob.png",
       "imageHint": "oil gas processing facility"
     }
   ]

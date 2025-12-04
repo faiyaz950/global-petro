@@ -18,7 +18,7 @@ const TIMELINE_DATA = [
     title: 'First Major Project',
     description: 'We secured our first major contract, the Well Hook-Up Work in the Karim West Field for MEDCO. This project was a significant milestone, proving our capabilities in the demanding Oil & Gas sector and solidifying our reputation as a dependable contractor in the region.',
     icon: Building,
-    image: '/firstmajorproject.png',
+    image: '/thirteenglob.png',
     highlights: ['Karim West Field Contract', 'MEDCO Partnership', 'Industry Entry']
   },
   {
@@ -34,7 +34,7 @@ const TIMELINE_DATA = [
     title: 'Team Growth & Innovation',
     description: 'Our team grew to over 100 skilled professionals across various disciplines. We invested heavily in workforce training, adopting modern construction practices and emerging technologies to enhance our efficiency, safety standards, and the overall quality of our project delivery.',
     icon: Users,
-    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80',
+    image: '/fourglob.png',
     highlights: ['100+ Team Members', 'Advanced Training Programs', 'Technology Adoption']
   },
   {
@@ -50,7 +50,7 @@ const TIMELINE_DATA = [
     title: 'Leading Complex Projects',
     description: 'Today, we stand at the forefront of managing technically demanding, large-scale projects across the Oil & Gas, Power, and Infrastructure sectors. Our continuous evolution is driven by a relentless focus on client satisfaction, quality excellence, and pushing the boundaries of engineering innovation.',
     icon: Target,
-    image: '/LeadingComplexProjects.png',
+    image: '/fourteenglob.png',
     highlights: ['Large-Scale Projects', 'Technical Excellence', 'Industry Leadership']
   },
 ];
