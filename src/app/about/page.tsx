@@ -10,9 +10,6 @@ import {
   Factory,
   GitMerge,
   HeartHandshake,
-  Mail,
-  MapPin,
-  Phone,
   Shield,
   ShieldCheck,
   Sparkles,
@@ -1220,49 +1217,6 @@ export default function AboutPage() {
                 >
                   Join Our Journey
                 </Link>
-              </div>
-            </div>
-          </section>
-
-          <section id="contact" className="py-24 bg-gray-900 text-white">
-            <div className="container mx-auto max-w-6xl px-4">
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <h3 className="font-bold text-lg mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Get in Touch</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-center items-center gap-2">
-                      <Mail size={16} />
-                      <a href="mailto:oiltech.om@gmail.com" className="hover:underline text-sm" style={{ fontFamily: "'Playfair Display', serif" }}>
-                        oiltech.om@gmail.com
-                      </a>
-                    </div>
-                    <div className="flex justify-center items-center gap-2">
-                      <Mail size={16} />
-                      <a href="mailto:mshsuri@gmail.com" className="hover:underline text-sm" style={{ fontFamily: "'Playfair Display', serif" }}>
-                        mshsuri@gmail.com
-                      </a>
-                    </div>
-                    <div className="flex justify-center items-center gap-2 mt-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                      <Phone size={16} />
-                      <span className="text-sm">+968 99603280</span>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Our Location</h3>
-                  <div className="flex justify-center items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    <MapPin size={16} />
-                    <span className="text-sm">Ghala, Muscat, Sultanate of Oman</span>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Certifications</h3>
-                  <div className="flex flex-col items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    <span className="px-3 py-1 rounded-full bg-blue-200 text-blue-800 text-sm">JSRS Certified</span>
-                    <span className="px-3 py-1 rounded-full bg-green-200 text-green-800 text-sm">Riyada Registered</span>
-                    <span className="px-3 py-1 rounded-full bg-yellow-200 text-yellow-800 text-sm">ISO 9001:2015 Compliant</span>
-                  </div>
-                </div>
               </div>
             </div>
           </section>

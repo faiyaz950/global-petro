@@ -26,10 +26,10 @@ export default function OverviewSection() {
   const [hoveredStat, setHoveredStat] = useState(null);
   const sectionRef = useRef(null);
 
-  const industrialEngineeringImage = PlaceHolderImages.find(p => p.id === 'policy-quality');
-  const teamOfEngineersImage = PlaceHolderImages.find(p => p.id === 'service-engineering');
-  // Use work-related image for the main construction site image
-  const constructionSiteImage = PlaceHolderImages.find(p => p.id === 'well-hookup') || PlaceHolderImages.find(p => p.id === 'project-1') || PlaceHolderImages.find(p => p.id === 'pipeline-installation') || PlaceHolderImages.find(p => p.id === 'service-construction');
+  // Use project images from public folder
+  const industrialEngineeringImage = { imageUrl: '/firstmajorproject.png', imageHint: 'First Major Project', description: 'First Major Project' };
+  const teamOfEngineersImage = { imageUrl: '/LeadingComplexProjects.png', imageHint: 'Leading Complex Projects', description: 'Leading Complex Projects' };
+  const constructionSiteImage = { imageUrl: '/wellhook.png', imageHint: 'Well Hook-up Works', description: 'Well Hook-up Works' };
 
 
   useEffect(() => {
