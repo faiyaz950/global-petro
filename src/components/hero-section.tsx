@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 
 const slogans = [
   "Engineering Excellence",
@@ -18,6 +18,8 @@ export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isClient, setIsClient] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -43,6 +45,16 @@ export default function HeroSection() {
       window.removeEventListener('mousemove', handleMove);
     };
   }, []);
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+    if (iframeRef.current) {
+      const newSrc = isMuted
+        ? "https://www.youtube.com/embed/wKCFFwuItmE?autoplay=1&mute=0&loop=1&playlist=wKCFFwuItmE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+        : "https://www.youtube.com/embed/wKCFFwuItmE?autoplay=1&mute=1&loop=1&playlist=wKCFFwuItmE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1";
+      iframeRef.current.src = newSrc;
+    }
+  };
 
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -73,8 +85,9 @@ export default function HeroSection() {
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <iframe
+          ref={iframeRef}
           className="absolute top-1/2 left-1/2 w-[120vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          src="https://www.youtube.com/embed/wKCFFwuItmE?autoplay=1&mute=0&loop=1&playlist=wKCFFwuItmE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+          src="https://www.youtube.com/embed/wKCFFwuItmE?autoplay=1&mute=1&loop=1&playlist=wKCFFwuItmE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
           title="Background"
           frameBorder="0"
           allow="autoplay; encrypted-media"
@@ -82,6 +95,24 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
+
+      {/* Audio Control Button */}
+      <button
+        onClick={toggleMute}
+        className="absolute bottom-6 right-6 z-50 p-4 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-white/20"
+        aria-label={isMuted ? "Unmute video" : "Mute video"}
+      >
+        {isMuted ? (
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>
+        ) : (
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>
+        )}
+      </button>
 
       {/* Floating Particles */}
       <div className="absolute inset-0 z-10 overflow-hidden">
