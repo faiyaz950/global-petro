@@ -5,33 +5,32 @@ import { ClipboardList, CheckCircle, Shield, Award, Users, Target, Zap, Building
 import GlobalNav from '@/components/global-nav';
 import Link from 'next/link';
 import Footer from '@/components/footer';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-// Service-related images and corresponding texts
+// Service-related images and corresponding texts - EPC & Project Management projects
 const heroSlides = [
   {
-    imageId: 'service-engineering',
+    imageUrl: '/epcandpm.png',
     text: 'Delivering Integrated Turnkey Solutions from Concept to Commissioning'
   },
   {
-    imageId: 'project-1',
-    text: 'Engineering Excellence with Advanced 3D Modeling and Design'
+    imageUrl: '/threeglob.png',
+    text: 'Mabrouk North East Development - Comprehensive EPC Project Management'
   },
   {
-    imageId: 'service-construction',
-    text: 'Seamless Procurement and Construction Management Services'
+    imageUrl: '/sixglob.png',
+    text: 'Raba & Hanya Development - Complex Greenfield EPC Solutions'
   },
   {
-    imageId: 'well-hookup',
-    text: 'Expert Project Management for Oil & Gas Field Operations'
+    imageUrl: '/sevenglob.png',
+    text: 'Off Plot Mechanical Contract - Engineering, Procurement & Construction Excellence'
   },
   {
-    imageId: 'pipeline-installation',
-    text: 'End-to-End EPC Services from Planning to Handover'
+    imageUrl: '/eightglob.png',
+    text: 'Sales Gas Project - Ongoing EPC Services with Integrated Project Management'
   },
   {
-    imageId: 'service-infrastructure',
-    text: 'Comprehensive Solutions for Infrastructure Development'
+    imageUrl: '/fourglob.png',
+    text: 'Civil & Electrical Works - EPC Support for Complex Industrial Projects'
   }
 ];
 
@@ -179,7 +178,6 @@ export default function EPCProjectManagementPage() {
             {/* Background Image Slider */}
             <div className="absolute inset-0">
               {heroSlides.map((slide, index) => {
-                const slideImage = PlaceHolderImages.find(img => img.id === slide.imageId) || PlaceHolderImages.find(img => img.id === 'service-engineering');
                 return (
                   <div
                     key={index}
@@ -188,8 +186,8 @@ export default function EPCProjectManagementPage() {
                     }`}
                   >
                     <img
-                      src={slideImage?.imageUrl || 'https://images.unsplash.com/photo-1736337271086-277e15477ea8?w=1920&q=80'}
-                      alt={slideImage?.description || 'EPC Project Management'}
+                      src={slide.imageUrl || '/epcandpm.png'}
+                      alt={slide.text || 'EPC Project Management'}
                       className="w-full h-full object-cover"
                       style={{ filter: 'brightness(0.7)' }}
                     />
@@ -332,8 +330,8 @@ export default function EPCProjectManagementPage() {
                 <div className="relative animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
                   <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
                     <img
-                      src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
-                      alt="EPC Engineering Solutions"
+                      src="/epcandpm.png"
+                      alt="EPC Engineering Solutions - Integrated Turnkey Project Management"
                       className="w-full h-96 object-cover"
                     />
                   </div>

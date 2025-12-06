@@ -5,32 +5,31 @@ import { Users, CheckCircle, Shield, Award, Target, Zap, Factory, Settings, Wren
 import GlobalNav from '@/components/global-nav';
 import Link from 'next/link';
 import Footer from '@/components/footer';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-// Service-related images and corresponding texts
+// Service-related images and corresponding texts - AI-generated images for Manpower Supply
 const heroSlides = [
   {
-    imageId: 'service-maintenance',
+    imageUrl: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=80',
     text: 'Your One-Stop Resource Partner for Projects Across Oman'
   },
   {
-    imageId: 'service-engineering',
+    imageUrl: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80',
     text: 'Skilled Workforce and Professional Equipment Rental Solutions'
   },
   {
-    imageId: 'service-construction',
+    imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80',
     text: 'Comprehensive Manpower Supply for Industrial Projects'
   },
   {
-    imageId: 'project-6',
+    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80',
     text: 'Expert Equipment Rental and Maintenance Support Services'
   },
   {
-    imageId: 'service-infrastructure',
+    imageUrl: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1920&q=80',
     text: 'Certified Professionals and Quality Equipment for Your Projects'
   },
   {
-    imageId: 'civil-electrical',
+    imageUrl: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1920&q=80',
     text: 'Flexible Manpower and Equipment Solutions Tailored to Your Needs'
   }
 ];
@@ -165,7 +164,6 @@ export default function ManpowerSupplyEquipmentRentalPage() {
             {/* Background Image Slider */}
             <div className="absolute inset-0">
               {heroSlides.map((slide, index) => {
-                const slideImage = PlaceHolderImages.find(img => img.id === slide.imageId) || PlaceHolderImages.find(img => img.id === 'service-maintenance');
                 return (
                   <div
                     key={index}
@@ -174,8 +172,8 @@ export default function ManpowerSupplyEquipmentRentalPage() {
                     }`}
                   >
                     <img
-                      src={slideImage?.imageUrl || 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=80'}
-                      alt={slideImage?.description || 'Manpower Supply & Equipment Rental'}
+                      src={slide.imageUrl || 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=80'}
+                      alt={slide.text || 'Manpower Supply & Equipment Rental'}
                       className="w-full h-full object-cover"
                       style={{ filter: 'brightness(0.7)' }}
                     />

@@ -5,33 +5,32 @@ import { Construction, CheckCircle, Shield, Award, Users, Target, Zap, Building2
 import GlobalNav from '@/components/global-nav';
 import Link from 'next/link';
 import Footer from '@/components/footer';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-// Service-related images and corresponding texts
+// Service-related images and corresponding texts - Civil & Mechanical Construction projects
 const heroSlides = [
   {
-    imageId: 'service-construction',
+    imageUrl: '/civilandmech.png',
     text: 'One-Stop Solution for Industrial and Infrastructure Construction in Oman & GCC'
   },
   {
-    imageId: 'project-6',
-    text: 'Expert Civil Engineering and Structural Fabrication Services'
+    imageUrl: '/fourglob.png',
+    text: 'Expert Civil Engineering and Structural Fabrication Services - Civil & Electrical Works'
   },
   {
-    imageId: 'service-infrastructure',
+    imageUrl: '/infrast.png',
     text: 'Comprehensive Mechanical Construction and Installation Solutions'
   },
   {
-    imageId: 'road-construction',
-    text: 'Infrastructure Development and Road Construction Expertise'
+    imageUrl: '/seventeenglob.jpeg',
+    text: 'Infrastructure Development and Road Construction Expertise - Grader Road Construction'
   },
   {
-    imageId: 'civil-electrical',
-    text: 'Integrated Civil, Mechanical, and Electrical Construction Services'
+    imageUrl: '/sevenglob.png',
+    text: 'Integrated Civil, Mechanical, and Electrical Construction Services - Off Plot Mechanical'
   },
   {
-    imageId: 'mechanical-piping',
-    text: 'Professional Construction Management and Quality Execution'
+    imageUrl: '/threeglob.png',
+    text: 'Professional Construction Management and Quality Execution - Mabrouk Development'
   }
 ];
 
@@ -176,7 +175,6 @@ export default function CivilMechanicalConstructionPage() {
             {/* Background Image Slider */}
             <div className="absolute inset-0">
               {heroSlides.map((slide, index) => {
-                const slideImage = PlaceHolderImages.find(img => img.id === slide.imageId) || PlaceHolderImages.find(img => img.id === 'service-construction');
                 return (
                   <div
                     key={index}
@@ -185,8 +183,8 @@ export default function CivilMechanicalConstructionPage() {
                     }`}
                   >
                     <img
-                      src={slideImage?.imageUrl || 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80'}
-                      alt={slideImage?.description || 'Civil & Mechanical Construction'}
+                      src={slide.imageUrl || '/civilandmech.png'}
+                      alt={slide.text || 'Civil & Mechanical Construction'}
                       className="w-full h-full object-cover"
                       style={{ filter: 'brightness(0.7)' }}
                     />
@@ -310,8 +308,8 @@ export default function CivilMechanicalConstructionPage() {
                 <div className="relative animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
                   <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
                     <img
-                      src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
-                      alt="Civil & Mechanical Construction"
+                      src="/civilandmech.png"
+                      alt="Civil & Mechanical Construction - Comprehensive Construction Services"
                       className="w-full h-96 object-cover"
                     />
                   </div>
@@ -590,28 +588,28 @@ export default function CivilMechanicalConstructionPage() {
                     client: 'PDO – L&T',
                     location: 'Harweel & Birba',
                     description: 'Comprehensive civil and electrical works for well sites including foundations, structures, and electrical installations.',
-                    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80'
+                    image: '/fourglob.png'
                   },
                   {
                     title: 'Off-Plot Mechanical Contract',
                     client: 'PDO – Punj Lloyd',
                     location: 'SAS Fahud, Yibal, Kauther',
                     description: 'Complete mechanical installation and fabrication works for off-plot facilities across multiple locations.',
-                    image: 'https://images.unsplash.com/photo-1623036484438-002339898926?w=600&q=80'
+                    image: '/sevenglob.png'
                   },
                   {
                     title: 'Mabrouk North East Development',
                     client: 'PDO',
                     location: 'Mabrouk Field',
                     description: 'Large-scale civil and mechanical scope including foundations, structures, and equipment installation.',
-                    image: 'https://images.unsplash.com/photo-1515630771457-09367d0ae038?w=600&q=80'
+                    image: '/threeglob.png'
                   },
                   {
                     title: 'Warehouse & Workshop Constructions',
                     client: 'SMEs',
                     location: 'Muscat, Sohar, Duqm',
                     description: 'Multiple warehouse and workshop constructions for small and medium enterprises across Oman.',
-                    image: 'https://images.unsplash.com/photo-1509390288171-ce2088f7d08e?w=600&q=80'
+                    image: '/infrast.png'
                   }
                 ].map((project, index) => (
                   <div

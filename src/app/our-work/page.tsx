@@ -15,11 +15,14 @@ import { sectorIcons } from '@/lib/icons';
 import GlobalNav from '@/components/global-nav';
 import { PROJECTS_DATA } from '@/lib/data/projects';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { ProjectDetailsModal } from '@/components/project-details-modal';
+import type { Project } from '@/lib/types';
 import Link from 'next/link';
 
 export default function PremiumOurWorkPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [hoveredIndex, setHoveredIndex] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = ['All', ...Object.keys(sectorIcons)];
 
@@ -346,6 +349,7 @@ export default function PremiumOurWorkPage() {
                     style={{ transitionDelay: `${index * 150}ms` }}
                     onMouseEnter={() => setHoveredIndex(project.id)}
                     onMouseLeave={() => setHoveredIndex(null)}
+                    onClick={() => setSelectedProject(project)}
                   >
                     <div className="group relative h-full cursor-pointer">
                       <div
@@ -470,6 +474,12 @@ export default function PremiumOurWorkPage() {
           </Card>
         </div>
       </section>
+      
+      <ProjectDetailsModal
+        isOpen={!!selectedProject}
+        onOpenChange={(isOpen) => !isOpen && setSelectedProject(null)}
+        project={selectedProject}
+      />
     </div>
   );
 }

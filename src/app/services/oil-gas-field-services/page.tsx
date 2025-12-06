@@ -5,33 +5,32 @@ import { Fuel, CheckCircle, Shield, Award, Users, Target, Zap, Building2, Factor
 import GlobalNav from '@/components/global-nav';
 import Link from 'next/link';
 import Footer from '@/components/footer';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-// Service-related images and corresponding texts
+// Service-related images and corresponding texts - Oil & Gas Field Services projects
 const heroSlides = [
   {
-    imageId: 'project-1',
+    imageUrl: '/oilandgass.png',
     text: 'Comprehensive Oil & Gas Field Services for Upstream Operations'
   },
   {
-    imageId: 'well-hookup',
-    text: 'Expert Well Hook-Up and Flowline Installation Services'
+    imageUrl: '/fifteenglob.jpeg',
+    text: 'Expert Well Hook-Up and Flowline Installation Services - Karim West Field'
   },
   {
-    imageId: 'oil-field-development',
-    text: 'Field Development and Production Facility Management'
+    imageUrl: '/threeglob.png',
+    text: 'Field Development and Production Facility Management - Mabrouk North East'
   },
   {
-    imageId: 'pipeline-installation',
+    imageUrl: '/nineglob.png',
     text: 'Pipeline Installation and Maintenance in Desert Environments'
   },
   {
-    imageId: 'field-development',
-    text: 'Complete Field Services from Exploration to Production'
+    imageUrl: '/sixglob.png',
+    text: 'Complete Field Services from Exploration to Production - Raba & Hanya Development'
   },
   {
-    imageId: 'oil-gas-facility',
-    text: 'Oil & Gas Processing Facility Operations and Support'
+    imageUrl: '/sevenglob.png',
+    text: 'Oil & Gas Processing Facility Operations and Support - SAS Facilities'
   }
 ];
 
@@ -189,7 +188,6 @@ export default function OilGasFieldServicesPage() {
             {/* Background Image Slider */}
             <div className="absolute inset-0">
               {heroSlides.map((slide, index) => {
-                const slideImage = PlaceHolderImages.find(img => img.id === slide.imageId) || PlaceHolderImages.find(img => img.id === 'project-1');
                 return (
                   <div
                     key={index}
@@ -198,8 +196,8 @@ export default function OilGasFieldServicesPage() {
                     }`}
                   >
                     <img
-                      src={slideImage?.imageUrl || 'https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=1920&q=80'}
-                      alt={slideImage?.description || 'Oil & Gas Field Services'}
+                      src={slide.imageUrl || '/oilandgass.png'}
+                      alt={slide.text || 'Oil & Gas Field Services'}
                       className="w-full h-full object-cover"
                       style={{ filter: 'brightness(0.7)' }}
                     />
@@ -342,8 +340,8 @@ export default function OilGasFieldServicesPage() {
                 <div className="relative animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
                   <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
                     <img
-                      src="https://images.unsplash.com/photo-1594398982255-fd4ea34a61f?w=800&q=80"
-                      alt="Oil & Gas Field Services"
+                      src="/oilandgass.png"
+                      alt="Oil & Gas Field Services - Comprehensive Field Operations"
                       className="w-full h-96 object-cover"
                     />
                   </div>
@@ -487,7 +485,7 @@ export default function OilGasFieldServicesPage() {
                     year: '2011',
                     description: 'Complete well hook-up and flowline installation for Karim West Field development.',
                     status: 'completed',
-                    image: 'https://images.unsplash.com/photo-1758799013232-92c193f4b5ad?w=600&q=80'
+                    image: '/fifteenglob.jpeg'
                   },
                   {
                     title: 'Mabrouk North East Development',
@@ -495,7 +493,7 @@ export default function OilGasFieldServicesPage() {
                     year: '2017–2018',
                     description: 'Large cluster development with multiple well hook-ups and flowline networks.',
                     status: 'completed',
-                    image: 'https://images.unsplash.com/photo-1594398982255-fd4ea34a61f?w=600&q=80'
+                    image: '/threeglob.png'
                   },
                   {
                     title: 'Raba & Hanya North East – Sehrowal',
@@ -503,7 +501,7 @@ export default function OilGasFieldServicesPage() {
                     year: '2021',
                     description: 'Comprehensive field development including well sites and pipeline infrastructure.',
                     status: 'completed',
-                    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80'
+                    image: '/sixglob.png'
                   },
                   {
                     title: 'Sales Gas Project SASWH-103',
@@ -511,7 +509,7 @@ export default function OilGasFieldServicesPage() {
                     year: 'Ongoing',
                     description: 'Sales gas pipeline project with advanced construction and commissioning.',
                     status: 'ongoing',
-                    image: 'https://images.unsplash.com/photo-1623036484438-002339898926?w=600&q=80'
+                    image: '/eightglob.png'
                   },
                   {
                     title: 'Khulod to Yibal 18" Pipeline Excavation',
@@ -519,7 +517,7 @@ export default function OilGasFieldServicesPage() {
                     year: 'Ongoing',
                     description: 'Large diameter pipeline excavation and installation project.',
                     status: 'ongoing',
-                    image: 'https://images.unsplash.com/photo-1515630771457-09367d0ae038?w=600&q=80'
+                    image: '/nineglob.png'
                   }
                 ].map((project, index) => (
                   <div

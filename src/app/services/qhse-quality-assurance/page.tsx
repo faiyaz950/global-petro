@@ -5,32 +5,31 @@ import { ShieldCheck, CheckCircle, Shield, Award, Users, Target, Zap, Factory, S
 import GlobalNav from '@/components/global-nav';
 import Link from 'next/link';
 import Footer from '@/components/footer';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-// Service-related images and corresponding texts
+// Service-related images and corresponding texts - QHSE Quality Assurance
 const heroSlides = [
   {
-    imageId: 'policy-hse',
+    imageUrl: '/qhone.png',
     text: 'Safety First. Quality Always. Zero Excuses.'
   },
   {
-    imageId: 'policy-quality',
+    imageUrl: '/qhtwo.png',
     text: 'Comprehensive Quality Assurance and Control Services'
   },
   {
-    imageId: 'service-engineering',
+    imageUrl: '/qhthree.png',
     text: 'Health, Safety, and Environment Management Excellence'
   },
   {
-    imageId: 'service-maintenance',
+    imageUrl: '/qhfour.png',
     text: 'ISO 9001:2015 Certified Quality Management Systems'
   },
   {
-    imageId: 'service-construction',
+    imageUrl: '/qhfive.png',
     text: 'Zero Incident Safety Records Across All Projects'
   },
   {
-    imageId: 'service-infrastructure',
+    imageUrl: '/qhsix.png',
     text: 'Proactive Risk Management and Compliance Solutions'
   }
 ];
@@ -165,7 +164,6 @@ export default function QHSEQualityAssurancePage() {
             {/* Background Image Slider */}
             <div className="absolute inset-0">
               {heroSlides.map((slide, index) => {
-                const slideImage = PlaceHolderImages.find(img => img.id === slide.imageId) || PlaceHolderImages.find(img => img.id === 'policy-hse');
                 return (
                   <div
                     key={index}
@@ -174,8 +172,8 @@ export default function QHSEQualityAssurancePage() {
                     }`}
                   >
                     <img
-                      src={slideImage?.imageUrl || 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80'}
-                      alt={slideImage?.description || 'QHSE & Quality Assurance'}
+                      src={slide.imageUrl || '/qhone.png'}
+                      alt={slide.text || 'QHSE & Quality Assurance'}
                       className="w-full h-full object-cover"
                       style={{ filter: 'brightness(0.7)' }}
                     />
@@ -318,7 +316,7 @@ export default function QHSEQualityAssurancePage() {
                 <div className="relative animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
                   <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
                     <img
-                      src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
+                      src="/qhone.png"
                       alt="QHSE & Quality Assurance"
                       className="w-full h-96 object-cover"
                     />
