@@ -141,19 +141,19 @@
     {
       "id": "well-hookup",
       "description": "Oil well hook-up and flowline installation in desert field.",
-      "imageUrl": "/wellhook.png",
+      "imageUrl": "/fifteenglob.jpeg",
       "imageHint": "well hook-up oil field"
     },
     {
       "id": "road-construction",
       "description": "Road construction and re-sheeting work in desert terrain.",
-      "imageUrl": "/roadre.png",
+      "imageUrl": "/sixteenglob.jpeg",
       "imageHint": "road construction desert"
     },
     {
       "id": "grader-road",
       "description": "Grader working on road construction and maintenance.",
-      "imageUrl": "/constga.png",
+      "imageUrl": "/seventeenglob.jpeg",
       "imageHint": "grader road construction"
     },
     {
@@ -165,13 +165,13 @@
     {
       "id": "pipeline-trenching",
       "description": "Pipeline trenching and installation work in desert.",
-      "imageUrl": "/pip.png",
+      "imageUrl": "/nineteenglob.jpeg",
       "imageHint": "pipeline trenching desert"
     },
     {
       "id": "cable-trenching",
       "description": "Cable trenching and laying work for telecommunications.",
-      "imageUrl": "/cable.png",
+      "imageUrl": "/twentyglob.jpeg",
       "imageHint": "cable trenching telecom"
     },
     {
@@ -231,7 +231,7 @@
     {
       "id": "oil-field-road",
       "description": "Road construction in oil field with pipelines and facilities in background.",
-      "imageUrl": "/grader.png",
+      "imageUrl": "/eighteenglob.jpeg",
       "imageHint": "oil field road construction"
     },
     {
