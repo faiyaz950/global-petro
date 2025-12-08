@@ -373,6 +373,9 @@ export default function Footer() {
             <p className="text-xs text-gray-600 mt-2" style={{ fontFamily: "'Inter', sans-serif" }}>
               Excellence in Engineering | Powered by Innovation
             </p>
+            <p className="text-xs text-gray-600 mt-3" style={{ fontFamily: "'Inter', sans-serif" }}>
+              Developed By Thivolve Global Private Limited
+            </p>
           </div>
         </div>
       </footer>

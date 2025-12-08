@@ -30,6 +30,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Output configuration for Hostinger
+  output: 'standalone',
+  // Ensure proper trailing slash handling
+  trailingSlash: false,
 };
 
 export default nextConfig;
