@@ -225,6 +225,29 @@ const CSRCard = ({ icon, title, description }: { icon: React.ReactNode; title: s
 );
 
 export default function AboutPage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const heroImages = [
+    '/firstmajorproject.png',
+    '/LeadingComplexProjects.png',
+    '/wellhook.png',
+    '/yibal.png',
+    '/oneglobe.png',
+    '/twoglobe.png',
+    '/threeglob.png',
+    '/fourglob.png',
+    '/fiveglob.png',
+    '/sixglob.png',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -426,70 +449,130 @@ export default function AboutPage() {
 
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="relative overflow-hidden bg-black py-32 pt-56 min-h-[80vh] flex items-center">
-            {/* Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
+          <section className="relative overflow-hidden bg-black py-32 pt-56 min-h-[90vh] flex items-center">
+            {/* Background Image Slider - More Clear */}
+            <div className="absolute inset-0 z-0">
+              {heroImages.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1500 ease-in-out ${
+                    index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                  }`}
+                >
+                  <img
+                    src={image}
+                    alt={`Hero background ${index + 1}`}
+                    className="w-full h-full object-cover scale-105 transition-transform duration-1500"
+                    style={{ 
+                      filter: 'brightness(0.5) contrast(1.1)',
+                      transform: index === currentImageIndex ? 'scale(1)' : 'scale(1.1)'
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Premium Gradient Overlays - Lighter for better image visibility */}
+            <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+            <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             
-            {/* Glowing Orbs */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(147, 36, 69, 0.15)' }}></div>
-            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{ backgroundColor: 'rgba(147, 36, 69, 0.1)', animationDelay: '1s' }}></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+            {/* Subtle Accent Glow - No circles */}
+            <div className="absolute top-0 left-0 w-full h-full z-10 pointer-events-none">
+              <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#932445]/10 to-transparent rounded-full blur-3xl"></div>
+              <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gradient-to-tr from-[#d63865]/10 to-transparent rounded-full blur-3xl"></div>
+            </div>
 
-            {/* Floating Shapes */}
-            <div className="absolute top-32 right-32 w-40 h-40 border-4 border-white/20 rounded-full animate-float"></div>
-            <div className="absolute bottom-48 left-32 w-32 h-32 border-4 border-white/20 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+            {/* Premium Slider Indicators */}
+            <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-30 flex gap-3 items-center">
+              {heroImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`rounded-full transition-all duration-500 backdrop-blur-sm ${
+                    index === currentImageIndex
+                      ? 'w-12 h-2 bg-white shadow-lg shadow-white/50'
+                      : 'w-2 h-2 bg-white/40 hover:bg-white/60 hover:scale-125'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
 
-            <div className="container relative mx-auto max-w-6xl px-4 text-center z-20">
-              {/* Badge */}
-              <div className="mb-8 animate-fadeIn">
-                <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 shadow-2xl">
+            <div className="container relative mx-auto max-w-7xl px-4 text-center z-20">
+              {/* Premium Badge */}
+              <div className="mb-10 animate-fadeIn">
+                <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/15 backdrop-blur-2xl rounded-full border-2 border-white/30 shadow-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105">
                   <span className="relative flex h-3 w-3">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-400"></span>
                   </span>
-                  <span className="text-white font-medium tracking-wide text-sm" style={{ fontFamily: "'Playfair Display', serif" }}>🏆 Engineering Excellence Since 2010</span>
+                  <span className="text-white font-bold tracking-wider text-sm uppercase" style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '0.1em' }}>
+                    🏆 Engineering Excellence Since 2010
+                  </span>
                 </div>
               </div>
 
-              {/* Company Name */}
+              {/* Premium Company Name */}
               <h1 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white text-center mb-6 tracking-tight animate-fadeIn"
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white text-center mb-8 tracking-tight animate-fadeIn leading-tight"
                 style={{ 
                   fontFamily: "'Playfair Display', serif",
-                  textShadow: '0 4px 15px rgba(0,0,0,0.4)',
+                  textShadow: '0 8px 32px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4)',
+                  letterSpacing: '-0.02em'
                 }}
               >
-                About Global Petrotech SPC
+                About Global{' '}
+                <span className="block mt-2 bg-gradient-to-r from-white via-[#fcd34d] to-white bg-clip-text text-transparent animate-gradient">
+                  Petrotech SPC
+                </span>
               </h1>
 
-              {/* Decorative Line */}
-              <div className="w-32 h-1 mb-8 mx-auto rounded-full animate-fadeIn" style={{ background: 'linear-gradient(90deg, transparent, #932445, #fcd34d, #932445, transparent)' }}></div>
+              {/* Premium Decorative Line */}
+              <div className="relative w-48 h-1.5 mb-10 mx-auto rounded-full overflow-hidden animate-fadeIn">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#932445] via-[#fcd34d] to-transparent animate-gradient"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-sm"></div>
+              </div>
 
-              {/* Subtitle */}
-              <p className="text-lg md:text-xl text-white/70 text-center max-w-2xl mx-auto mb-10 font-light tracking-wide animate-fadeIn" style={{ animationDelay: '0.2s', fontFamily: "'Playfair Display', serif" }}>
+              {/* Premium Subtitle */}
+              <p className="text-xl md:text-2xl text-white/90 text-center max-w-3xl mx-auto mb-12 font-medium tracking-wide animate-fadeIn leading-relaxed" style={{ 
+                animationDelay: '0.2s', 
+                fontFamily: "'Playfair Display', serif",
+                textShadow: '0 4px 12px rgba(0,0,0,0.5)'
+              }}>
                 Your trusted partner in specialized engineering and construction solutions across Oman and the GCC region, delivering high-quality, sustainable projects that exceed expectations.
               </p>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap justify-center gap-4 animate-fadeIn" style={{ animationDelay: '0.4s' }}>
+              {/* Premium CTA Buttons */}
+              <div className="flex flex-wrap justify-center gap-6 animate-fadeIn" style={{ animationDelay: '0.4s' }}>
                 <button
                   onClick={() => handleScrollTo('services')}
-                  className="group relative px-8 py-4 text-white font-bold rounded-full overflow-hidden shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="group relative px-10 py-5 text-white font-bold rounded-full overflow-hidden shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-[#932445]/50"
                   style={{ 
-                    background: 'linear-gradient(135deg, #932445 0%, #d63865 100%)',
-                    fontFamily: "'Playfair Display', serif"
+                    background: 'linear-gradient(135deg, #932445 0%, #d63865 50%, #932445 100%)',
+                    backgroundSize: '200% 200%',
+                    fontFamily: "'Playfair Display', serif",
+                    animation: 'gradient 3s ease infinite'
                   }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#d63865] to-[#932445] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span className="relative z-10">Explore Our Services</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#d63865] via-[#932445] to-[#d63865] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient"></div>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <span>Explore Our Services</span>
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                  </span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                  </div>
                 </button>
                 <button
                   onClick={() => handleScrollTo('contact')}
-                  className="px-8 py-4 text-white font-bold rounded-full border-2 border-white/30 hover:border-white/50 backdrop-blur-sm transition-all duration-300 hover:scale-105 shadow-xl"
+                  className="group px-10 py-5 text-white font-bold rounded-full border-2 border-white/40 hover:border-white/80 backdrop-blur-xl bg-white/10 hover:bg-white/20 transition-all duration-500 hover:scale-110 shadow-xl hover:shadow-2xl"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
-                  Contact Us
+                  <span className="flex items-center gap-2">
+                    <span>Contact Us</span>
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                  </span>
                 </button>
               </div>
             </div>
@@ -699,38 +782,75 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(147,36,69,0.03)_1.5px,transparent_1.5px),linear-gradient(90deg,rgba(147,36,69,0.03)_1.5px,transparent_1.5px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
             
             <div className="container mx-auto max-w-7xl px-4 relative z-10">
+              {/* Section Header */}
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect shadow-xl shadow-[#932445]/20 mb-4 animate-scaleIn hover:scale-105 transition-transform duration-300">
+                  <div className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#932445] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-gradient-to-r from-[#932445] to-[#d63865]"></span>
+                  </div>
+                  <Sparkles className="w-3 h-3 text-[#932445]" />
+                  <span className="text-[#932445] font-bold text-xs tracking-widest" style={{ fontFamily: "'Playfair Display', serif" }}>OUR FOUNDATION</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fadeIn stagger-1 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Vision &{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#932445] via-[#d63865] to-[#932445] animate-gradient">
+                    Mission
+                  </span>
+                </h2>
+              </div>
+
               <div className="grid gap-12 lg:grid-cols-2">
-                <div className="relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-all duration-500 hover:scale-105 animate-fadeInUp">
-                  <img
-                    src="/foundationandvision.png"
-                    alt="Vision"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#932445]/95 via-[#b8305a]/95 to-[#d63865]/95 p-12 flex flex-col justify-center">
-                    <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-white/20 backdrop-blur-sm">
-                      <Target size={40} className="text-white" />
+                {/* Vision Card */}
+                <div className="group relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-all duration-500 hover:scale-[1.02] animate-fadeInUp bg-white border-2 border-gray-100">
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src="/foundationandvision.png"
+                      alt="Vision"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#932445]/90 via-[#b8305a]/90 to-[#d63865]/90"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20 backdrop-blur-sm border-2 border-white/30 group-hover:scale-110 transition-transform duration-500">
+                        <Target size={48} className="text-white" />
+                      </div>
                     </div>
-                    <h2 className="text-4xl font-black mb-6 text-white" style={{ fontFamily: "'Playfair Display', serif" }}>Our Vision</h2>
-                    <p className="text-xl leading-relaxed text-white/95" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  </div>
+                  <div className="p-10 bg-white">
+                    <h2 className="text-4xl font-black mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      Our Vision
+                    </h2>
+                    <p className="text-lg leading-relaxed text-gray-700" style={{ fontFamily: "'Playfair Display', serif" }}>
                       To be the leading provider of integrated engineering and construction solutions in Oman and the GCC, celebrated for excellence, innovation, and sustainable practices in oil & gas, power, energy, and infrastructure sectors.
                     </p>
                   </div>
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#932445] via-[#d63865] to-[#932445]"></div>
                 </div>
-                <div className="relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-all duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-                  <img
-                    src="/firstmajorproject.png"
-                    alt="Mission"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#7a1d35]/95 via-[#932445]/95 to-[#b8305a]/95 p-12 flex flex-col justify-center">
-                    <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-white/20 backdrop-blur-sm">
-                      <Briefcase size={40} className="text-white" />
+
+                {/* Mission Card */}
+                <div className="group relative rounded-3xl overflow-hidden shadow-3xl hover:shadow-4xl transition-all duration-500 hover:scale-[1.02] animate-fadeInUp bg-white border-2 border-gray-100" style={{ animationDelay: '0.2s' }}>
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src="/firstmajorproject.png"
+                      alt="Mission"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#7a1d35]/90 via-[#932445]/90 to-[#b8305a]/90"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20 backdrop-blur-sm border-2 border-white/30 group-hover:scale-110 transition-transform duration-500">
+                        <Briefcase size={48} className="text-white" />
+                      </div>
                     </div>
-                    <h2 className="text-4xl font-black mb-6 text-white" style={{ fontFamily: "'Playfair Display', serif" }}>Our Mission</h2>
-                    <p className="text-xl leading-relaxed text-white/95" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  </div>
+                  <div className="p-10 bg-white">
+                    <h2 className="text-4xl font-black mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      Our Mission
+                    </h2>
+                    <p className="text-lg leading-relaxed text-gray-700" style={{ fontFamily: "'Playfair Display', serif" }}>
                       To deliver cost-effective, high-quality services that surpass client expectations, upholding the highest standards of safety, environmental responsibility, and ethical practices. We are dedicated to fostering local communities, empowering our workforce, and driving sustainable regional growth.
                     </p>
                   </div>
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#932445] via-[#d63865] to-[#932445]"></div>
                 </div>
               </div>
             </div>

@@ -2,9 +2,28 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   
-  # Handle Next.js static files
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+  # Prevent access to hidden files and directories
+  RewriteCond %{SCRIPT_FILENAME} -d [OR]
+  RewriteCond %{SCRIPT_FILENAME} -f
+  RewriteRule "(^|/)\." - [F]
+  
+  # Allow access to Next.js static files and assets
+  RewriteCond %{REQUEST_URI} ^/_next/static [OR]
+  RewriteCond %{REQUEST_URI} ^/_next/image [OR]
+  RewriteCond %{REQUEST_URI} ^/favicon.ico [OR]
+  RewriteCond %{REQUEST_URI} \.(ico|jpg|jpeg|png|gif|svg|webp|css|js|json|woff|woff2|ttf|eot)$
+  RewriteRule ^ - [L]
+  
+  # Allow access to existing files
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+  
+  # Allow access to existing directories
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  
+  # Rewrite all other requests to index.html (for static export)
+  # If using Node.js standalone mode, comment out this line
   RewriteRule ^(.*)$ /index.html [L]
   
   # Security Headers
@@ -14,6 +33,12 @@
     Header set X-XSS-Protection "1; mode=block"
   </IfModule>
 </IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Set default file
+DirectoryIndex index.html index.htm
 
 # Enable Gzip Compression
 <IfModule mod_deflate.c>

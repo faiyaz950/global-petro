@@ -7,11 +7,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const navLinks = [
-    { href: '#overview', label: 'Overview' },
-    { href: '#history', label: 'History' },
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About Us' },
+    { href: '/our-work', label: 'Our Work' },
     { href: '#services', label: 'Services' },
-    { href: '#policies', label: 'Policies' },
-    { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' },
   ];
   
@@ -295,16 +294,23 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Column 2: Quick Links */}
+            {/* Column 2: Navigation Links */}
             <div>
-              <h3 className="footer-title text-xl text-white mb-8">Quick Links</h3>
+              <h3 className="footer-title text-xl text-white mb-8">Navigation</h3>
               <ul className="space-y-4">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <a href={link.href} className="footer-link text-gray-400 flex items-center group">
-                      <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      {link.label}
-                    </a>
+                    {link.href.startsWith('#') ? (
+                      <a href={link.href} className="footer-link text-gray-400 flex items-center group">
+                        <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="footer-link text-gray-400 flex items-center group">
+                        <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -9,6 +9,7 @@ import Footer from '@/components/footer';
 import PoliciesSection from '@/components/policies-section';
 import ClientsSection from '@/components/clients-section';
 import AchievementsSection from '@/components/achievements-section';
+import ProjectsGallerySection from '@/components/projects-gallery-section';
 import VisionMissionSection from '@/components/vision-mission-section';
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         <PortfolioSection />
         <ClientsSection />
         <AchievementsSection />
+        <ProjectsGallerySection />
         <VisionMissionSection />
         <PoliciesSection />
         <ContactSection />
