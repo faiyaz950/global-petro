@@ -1,16 +1,18 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 const CLIENT_LOGOS = [
-  { id: 1, name: 'PDO', color: 'from-blue-600 to-blue-800' },
-  { id: 2, name: 'OXY', color: 'from-red-600 to-red-800' },
-  { id: 3, name: 'Oman Gas', color: 'from-green-600 to-green-800' },
-  { id: 4, name: 'MEDCO', color: 'from-purple-600 to-purple-800' },
-  { id: 5, name: 'LT', color: 'from-orange-600 to-orange-800' },
-  { id: 6, name: 'Galfar', color: 'from-teal-600 to-teal-800' },
-  { id: 7, name: 'Al Turki', color: 'from-indigo-600 to-indigo-800' },
-  { id: 8, name: 'ORPIC', color: 'from-pink-600 to-pink-800' },
+  { id: 1, image: '/clientone.jpeg', name: 'Client 1' },
+  { id: 2, image: '/clienttwo.jpeg', name: 'Client 2' },
+  { id: 3, image: '/clientthree.jpeg', name: 'Client 3' },
+  { id: 4, image: '/clientfour.jpeg', name: 'Client 4' },
+  { id: 5, image: '/clientfive.jpeg', name: 'Client 5' },
+  { id: 6, image: '/clientsix.jpeg', name: 'Client 6' },
+  { id: 7, image: '/clientseven.jpeg', name: 'Client 7' },
+  { id: 8, image: '/clienteight.jpeg', name: 'Client 8' },
+  { id: 9, image: '/clientnine.jpeg', name: 'Client 9' },
 ];
 
 export default function ClientsSection() {
@@ -46,9 +48,9 @@ export default function ClientsSection() {
     }
   };
 
-  const row1 = [...CLIENT_LOGOS.slice(0, 4), ...CLIENT_LOGOS.slice(0, 4), ...CLIENT_LOGOS.slice(0, 4)];
-  const row2 = [...CLIENT_LOGOS.slice(4, 8), ...CLIENT_LOGOS.slice(4, 8), ...CLIENT_LOGOS.slice(4, 8)];
-  const row3 = [...CLIENT_LOGOS.slice(0, 4), ...CLIENT_LOGOS.slice(4, 8), ...CLIENT_LOGOS.slice(0, 4)];
+  const row1 = [...CLIENT_LOGOS.slice(0, 3), ...CLIENT_LOGOS.slice(0, 3), ...CLIENT_LOGOS.slice(0, 3)];
+  const row2 = [...CLIENT_LOGOS.slice(3, 6), ...CLIENT_LOGOS.slice(3, 6), ...CLIENT_LOGOS.slice(3, 6)];
+  const row3 = [...CLIENT_LOGOS.slice(6, 9), ...CLIENT_LOGOS.slice(6, 9), ...CLIENT_LOGOS.slice(6, 9)];
 
   return (
     <>
@@ -179,14 +181,18 @@ export default function ClientsSection() {
                     key={`row1-${index}`}
                     className="flex-shrink-0 w-72"
                   >
-                    <div className="logo-card glass-effect rounded-2xl p-8 h-40 flex items-center justify-center group relative overflow-hidden shadow-2xl bg-white/40 backdrop-blur-md border border-primary/20">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${logo.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                    <div className="logo-card glass-effect rounded-2xl p-6 h-40 flex items-center justify-center group relative overflow-hidden shadow-2xl bg-white/90 backdrop-blur-md border border-primary/20">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#932445]/0 to-[#d63865]/0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
                       <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
-                      <h3 
-                        className="text-3xl font-bold z-10 relative font-headline text-primary"
-                      >
-                        {logo.name}
-                      </h3>
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <Image
+                          src={logo.image}
+                          alt={logo.name}
+                          fill
+                          className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+                          sizes="(max-width: 768px) 50vw, 288px"
+                        />
+                      </div>
                       <div className="absolute -bottom-2 -right-2 w-24 h-24 rounded-full bg-primary/10 group-hover:scale-150 transition-transform duration-700"></div>
                     </div>
                   </div>
@@ -202,14 +208,18 @@ export default function ClientsSection() {
                     key={`row2-${index}`}
                     className="flex-shrink-0 w-72"
                   >
-                     <div className="logo-card glass-effect rounded-2xl p-8 h-40 flex items-center justify-center group relative overflow-hidden shadow-2xl bg-white/40 backdrop-blur-md border border-primary/20">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${logo.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                     <div className="logo-card glass-effect rounded-2xl p-6 h-40 flex items-center justify-center group relative overflow-hidden shadow-2xl bg-white/90 backdrop-blur-md border border-primary/20">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#932445]/0 to-[#d63865]/0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
                       <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
-                      <h3 
-                        className="text-3xl font-bold z-10 relative font-headline text-primary"
-                      >
-                        {logo.name}
-                      </h3>
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <Image
+                          src={logo.image}
+                          alt={logo.name}
+                          fill
+                          className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+                          sizes="(max-width: 768px) 50vw, 288px"
+                        />
+                      </div>
                       <div className="absolute -top-2 -left-2 w-24 h-24 rounded-full bg-primary/10 group-hover:scale-150 transition-transform duration-700" ></div>
                     </div>
                   </div>
@@ -225,14 +235,18 @@ export default function ClientsSection() {
                     key={`row3-${index}`}
                     className="flex-shrink-0 w-72"
                   >
-                    <div className="logo-card glass-effect rounded-2xl p-8 h-40 flex items-center justify-center group relative overflow-hidden shadow-2xl bg-white/40 backdrop-blur-md border border-primary/20">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${logo.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                    <div className="logo-card glass-effect rounded-2xl p-6 h-40 flex items-center justify-center group relative overflow-hidden shadow-2xl bg-white/90 backdrop-blur-md border border-primary/20">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#932445]/0 to-[#d63865]/0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
                       <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
-                      <h3 
-                        className="text-3xl font-bold z-10 relative font-headline text-primary"
-                      >
-                        {logo.name}
-                      </h3>
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <Image
+                          src={logo.image}
+                          alt={logo.name}
+                          fill
+                          className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+                          sizes="(max-width: 768px) 50vw, 288px"
+                        />
+                      </div>
                       <div className="absolute bottom-1/2 right-1/2 w-24 h-24 rounded-full bg-primary/10 group-hover:scale-150 transition-transform duration-700" ></div>
                     </div>
                   </div>
